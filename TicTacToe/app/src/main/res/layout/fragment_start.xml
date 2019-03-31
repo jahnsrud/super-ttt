@@ -3,22 +3,21 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".GameFragment">
+             tools:context=".StartFragment">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <Button
-                android:text="Button"
+        <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/button7"/>
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/editText"/>
         <Button
-                android:text="Button"
+                android:text="Start"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/button8"/>
-        <Button
-                android:text="Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/button9"/>
+                android:layout_height="wrap_content" android:id="@+id/playButton"/>
     </LinearLayout>
 </FrameLayout>

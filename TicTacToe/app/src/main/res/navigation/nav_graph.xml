@@ -2,11 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
-            app:startDestination="@id/mainFragment2">
-    <fragment android:id="@+id/mainFragment2" android:name="no.jahnsrud.tictactoe.MainFragment"
+            app:startDestination="@id/mainFragment">
+    <fragment android:id="@+id/mainFragment" android:name="no.jahnsrud.tictactoe.MainFragment"
               android:label="fragment_main" tools:layout="@layout/fragment_main">
-        <action android:id="@+id/action_mainFragment2_to_gameFragment2" app:destination="@id/gameFragment2"/>
+        <action android:id="@+id/action_mainFragment_to_startFragment" app:destination="@id/startFragment"/>
     </fragment>
-    <fragment android:id="@+id/gameFragment2" android:name="no.jahnsrud.tictactoe.GameFragment"
+    <fragment android:id="@+id/gameFragment" android:name="no.jahnsrud.tictactoe.GameFragment"
               android:label="fragment_game" tools:layout="@layout/fragment_game"/>
+    <fragment android:id="@+id/startFragment" android:name="no.jahnsrud.tictactoe.StartFragment"
+              android:label="fragment_start" tools:layout="@layout/fragment_start">
+        <action android:id="@+id/action_startFragment_to_gameFragment2" app:destination="@id/gameFragment"/>
+    </fragment>
 </navigation>
