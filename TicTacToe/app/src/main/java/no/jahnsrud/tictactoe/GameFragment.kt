@@ -3,16 +3,18 @@ package no.jahnsrud.tictactoe
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : View.OnClickListener, Fragment(){
 
-    var player1Moves = intArrayOf()
-    var player2Moves = intArrayOf()
+    var player1Moves = ArrayList<Int>()
+    var player2Moves = ArrayList<Int>()
     var activePlayer = 1
 
     override fun onCreateView(
@@ -30,7 +32,53 @@ class GameFragment : View.OnClickListener, Fragment(){
             reset()
         })
 
-        onClick(button1)
+        terribleSetOnClickListener()
+
+    }
+
+
+
+    fun didMakeMove(button: Button) {
+
+        // Log.d("Button", ""+ button.id)
+
+        // TODO: FIX!!!
+
+        Log.d("Button", ""+ button.id)
+
+        if (player1Moves.contains(button.id as Int) || player2Moves.contains(button.id as Int)) {
+            Toast.makeText(activity, "Move already made", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (activePlayer == 1) {
+            player1Moves.add(button.id as Int)
+        } else {
+            player2Moves.add(button.id as Int)
+        }
+
+
+        var symbol = ""
+
+        if (activePlayer == 1) {
+            symbol = "X"
+        } else {
+            symbol = "O"
+        }
+
+        button.setText(symbol)
+        button.isEnabled = false
+
+        setActivePlayer()
+
+    }
+
+    fun setActivePlayer() {
+        if (activePlayer == 1) {
+            activePlayer = 2
+        } else {
+            activePlayer = 1
+        }
     }
 
     override fun onClick(v: View?) {
@@ -42,10 +90,6 @@ class GameFragment : View.OnClickListener, Fragment(){
 
         }
 
-    }
-
-    fun didMakeMove(view: View) {
-        print("HEI")
     }
 
     fun reset() {
@@ -67,6 +111,44 @@ class GameFragment : View.OnClickListener, Fragment(){
      */
 
 
+
+    private fun terribleSetOnClickListener() {
+        button1.setOnClickListener({
+            didMakeMove(button1)
+        })
+
+        button2.setOnClickListener({
+            didMakeMove(button2)
+        })
+
+        button3.setOnClickListener({
+            didMakeMove(button3)
+        })
+
+        button4.setOnClickListener({
+            didMakeMove(button4)
+        })
+
+        button5.setOnClickListener({
+            didMakeMove(button5)
+        })
+
+        button6.setOnClickListener({
+            didMakeMove(button6)
+        })
+
+        button7.setOnClickListener({
+            didMakeMove(button7)
+        })
+
+        button8.setOnClickListener({
+            didMakeMove(button8)
+        })
+
+        button9.setOnClickListener({
+            didMakeMove(button9)
+        })
+    }
 
 
 }
