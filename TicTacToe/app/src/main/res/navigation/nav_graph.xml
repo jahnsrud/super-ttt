@@ -9,6 +9,7 @@
                 app:destination="@+id/startFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:popExitAnim="@anim/slide_in_left"/>
+        <action android:id="@+id/action_mainFragment_to_leaderboardFragment" app:destination="@id/leaderboardFragment"/>
     </fragment>
     <fragment android:id="@+id/gameFragment" android:name="no.jahnsrud.tictactoe.GameFragment"
               android:label="fragment_game" tools:layout="@layout/fragment_game"/>
@@ -16,4 +17,6 @@
               android:label="fragment_start" tools:layout="@layout/fragment_start">
         <action android:id="@+id/action_startFragment_to_gameFragment2" app:destination="@id/gameFragment"/>
     </fragment>
+    <fragment android:id="@+id/leaderboardFragment" android:name="no.jahnsrud.tictactoe.LeaderboardFragment"
+              android:label="fragment_leaderboard" tools:layout="@layout/fragment_leaderboard"/>
 </navigation>
