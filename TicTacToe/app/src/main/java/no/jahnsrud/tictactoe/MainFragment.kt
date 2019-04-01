@@ -28,7 +28,7 @@ class MainFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         playButton.setOnClickListener({
-            Navigation.findNavController(this.view!!).navigate(R.id.startFragment)
+            Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_startFragment)
 
         })
     }
