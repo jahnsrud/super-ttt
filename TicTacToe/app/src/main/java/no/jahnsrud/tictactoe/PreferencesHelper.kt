@@ -21,9 +21,7 @@ object PreferencesHelper {
     }
 
     fun loadLastPlayer() : String {
-
-        val name = prefs!!.getString("name", "Default")
-
+        val name = prefs!!.getString("name", "")
         return name
     }
 

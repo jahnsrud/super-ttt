@@ -8,13 +8,17 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <TextView
+                android:text="Enter player info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView2" android:textSize="30sp"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Name"
                 android:ems="10"
-                android:id="@+id/playerTextField"/>
+                android:id="@+id/playerTextField" android:hint="Name" android:textStyle="bold"
+                android:singleLine="true"/>
         <Button
                 android:text="Start"
                 android:layout_width="match_parent"
