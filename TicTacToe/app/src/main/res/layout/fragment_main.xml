@@ -21,12 +21,12 @@
                 android:text="Play"
                 android:layout_width="match_parent"
                 android:layout_height="113dp" android:id="@+id/playButton"
-                style="@style/Widget.AppCompat.Button.Colored"/>
+                style="@style/Widget.AppCompat.Button.Colored" android:textSize="24sp" android:textStyle="bold"/>
         <Button
                 android:text="Leaderboard"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/playButton2"
-                style="@style/Widget.AppCompat.Button.Small"/>
+                android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
+                style="@style/Widget.AppCompat.Button"/>
         <Button
                 android:text="Rules (?)"
                 android:layout_width="match_parent"

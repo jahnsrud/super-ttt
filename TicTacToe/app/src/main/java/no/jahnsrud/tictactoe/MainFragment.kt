@@ -31,6 +31,11 @@ class MainFragment : Fragment() {
             Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_startFragment)
 
         })
+
+        leaderboardButton.setOnClickListener({
+            Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_leaderboardFragment)
+
+        })
     }
 
 
