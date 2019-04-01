@@ -26,11 +26,11 @@
                 android:text="Leaderboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/playButton2"
-                style="@style/Widget.AppCompat.Button.Colored"/>
+                style="@style/Widget.AppCompat.Button.Small"/>
         <Button
-                android:text="Rules(?)"
+                android:text="Rules (?)"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/playButton3"
-                style="@style/Widget.AppCompat.Button.Colored"/>
+                style="@style/Widget.AppCompat.Button.Small"/>
     </LinearLayout>
 </FrameLayout>

@@ -1,23 +1,16 @@
 package no.jahnsrud.tictactoe
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_start.*
+import no.jahnsrud.tictactoe.Models.Player
 
 
 class StartFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,9 +24,25 @@ class StartFragment : Fragment() {
         super.onStart()
 
         playButton.setOnClickListener({
+            savePlayer()
             Navigation.findNavController(this.view!!).navigate(R.id.gameFragment)
-
         })
+
+        PreferencesHelper.init(this.context!!)
+
+        loadPlayer()
+
+    }
+
+    fun loadPlayer() {
+        val name = PreferencesHelper.loadLastPlayer()
+        playerTextField.setText(name)
+
+    }
+
+    fun savePlayer() {
+        val player = Player(playerTextField.text.toString(), 0)
+        PreferencesHelper.savePlayer(player)
 
     }
 
