@@ -36,12 +36,12 @@ class StartFragment : Fragment() {
 
     fun loadPlayer() {
         val name = PreferencesHelper.loadLastPlayer()
-        playerTextField.setText(name)
+        player1TextField.setText(name)
 
     }
 
     fun savePlayer() {
-        val player = Player(playerTextField.text.toString(), 0)
+        val player = Player(player1TextField.text.toString(), 0)
         PreferencesHelper.savePlayer(player)
 
     }
