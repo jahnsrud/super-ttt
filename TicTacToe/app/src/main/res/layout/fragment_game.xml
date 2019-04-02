@@ -86,9 +86,26 @@
                         style="@style/Widget.AppCompat.Button.Borderless"/>
             </LinearLayout>
         </LinearLayout>
-        <Button
-                android:text="Reset"
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/resetButton"/>
+                android:layout_height="wrap_content" android:background="@color/lightGrayBackground"
+        >
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"/>
+            <TextView
+                    android:text="PLAYER_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView4"/>
+            <TextView
+                    android:text="PLAYER_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/PLAYER_2"/>
+            <Button
+                    android:text="Reset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/resetButton"/>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

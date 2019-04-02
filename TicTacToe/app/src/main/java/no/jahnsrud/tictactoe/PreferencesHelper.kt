@@ -14,14 +14,14 @@ object PreferencesHelper {
 
     }
 
-    fun savePlayer(player: Player) {
+    fun savePlayer(player: Player, playerId:String) {
         val editor = prefs!!.edit()
-        editor.putString("name", player.name)
+        editor.putString("player_"+playerId, player.name)
         editor.apply()
     }
 
-    fun loadLastPlayer() : String {
-        val name = prefs!!.getString("name", "")
+    fun loadPlayer(playerId:String) : String {
+        val name = prefs!!.getString("player_"+playerId, "")
         return name
     }
 

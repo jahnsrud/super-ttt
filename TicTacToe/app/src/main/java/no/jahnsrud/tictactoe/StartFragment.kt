@@ -24,25 +24,42 @@ class StartFragment : Fragment() {
         super.onStart()
 
         playButton.setOnClickListener({
-            savePlayer()
+            savePlayers()
             Navigation.findNavController(this.view!!).navigate(R.id.gameFragment)
         })
 
         PreferencesHelper.init(this.context!!)
 
-        loadPlayer()
+        loadPlayers()
 
     }
 
-    fun loadPlayer() {
-        val name = PreferencesHelper.loadLastPlayer()
-        player1TextField.setText(name)
+    override fun onResume() {
+        super.onResume()
+        loadPlayers()
 
     }
 
-    fun savePlayer() {
-        val player = Player(player1TextField.text.toString(), ArrayList<Int>(), false)
-        PreferencesHelper.savePlayer(player)
+    fun loadPlayers() {
+        val player1 = PreferencesHelper.loadPlayer("1")
+        player1TextField.setText(player1)
+
+        val player2 = PreferencesHelper.loadPlayer("2")
+        player2TextField.setText(player2)
+
+    }
+
+    fun savePlayers() {
+
+        var player1Name:String = player1TextField.text.toString().trimEnd()
+        var player2Name:String = player2TextField.text.toString().trimEnd()
+
+        val player1 = Player(player1Name, false)
+        val player2 = Player(player2Name, false)
+
+        PreferencesHelper.savePlayer(player1, "1")
+        PreferencesHelper.savePlayer(player2, "2")
+
 
     }
 

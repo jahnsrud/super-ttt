@@ -14,10 +14,11 @@ import no.jahnsrud.tictactoe.Models.Player
 
 class GameFragment : View.OnClickListener, Fragment(){
 
-    var player1 = Player("Player 1", ArrayList<Int>(), false)
-    var player2 = Player("Player 2", ArrayList<Int>(), false)
+    var player1 = Player("Player 1", false)
+    var player2 = Player("Player 2", false)
 
     var activePlayer = 1
+
     var isAIEnabled = false
 
     override fun onCreateView(
@@ -91,16 +92,7 @@ class GameFragment : View.OnClickListener, Fragment(){
         button.setText(symbol)
         button.isEnabled = false
 
-        setActivePlayer()
-
-        ////////
-
-
         checkWinner()
-
-
-
-        ////////
 
     }
 
@@ -124,6 +116,9 @@ class GameFragment : View.OnClickListener, Fragment(){
         } else if (player2.moves.containsAll(test)) {
             Toast.makeText(activity, "Player 2 won 🥳", Toast.LENGTH_SHORT).show()
         }
+
+        setActivePlayer()
+
     }
 
 
@@ -173,8 +168,8 @@ class GameFragment : View.OnClickListener, Fragment(){
 
     fun reset() {
 
-        player1.moves.clear()
-        player2.moves.clear()
+        player1.clearMoves()
+        player2.clearMoves()
 
         activePlayer = 1
 
@@ -189,41 +184,16 @@ class GameFragment : View.OnClickListener, Fragment(){
 
 
     private fun terribleSetOnClickListener() {
-        button1.setOnClickListener({
-            didMakeMove(button1)
-        })
 
-        button2.setOnClickListener({
-            didMakeMove(button2)
-        })
-
-        button3.setOnClickListener({
-            didMakeMove(button3)
-        })
-
-        button4.setOnClickListener({
-            didMakeMove(button4)
-        })
-
-        button5.setOnClickListener({
-            didMakeMove(button5)
-        })
-
-        button6.setOnClickListener({
-            didMakeMove(button6)
-        })
-
-        button7.setOnClickListener({
-            didMakeMove(button7)
-        })
-
-        button8.setOnClickListener({
-            didMakeMove(button8)
-        })
-
-        button9.setOnClickListener({
-            didMakeMove(button9)
-        })
+        button1.setOnClickListener({ didMakeMove(button1) })
+        button2.setOnClickListener({ didMakeMove(button2) })
+        button3.setOnClickListener({ didMakeMove(button3) })
+        button4.setOnClickListener({ didMakeMove(button4) })
+        button5.setOnClickListener({ didMakeMove(button5) })
+        button6.setOnClickListener({ didMakeMove(button6) })
+        button7.setOnClickListener({ didMakeMove(button7) })
+        button8.setOnClickListener({ didMakeMove(button8) })
+        button9.setOnClickListener({ didMakeMove(button9) })
     }
 
 
