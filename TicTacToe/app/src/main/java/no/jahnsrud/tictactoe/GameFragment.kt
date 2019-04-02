@@ -63,29 +63,18 @@ class GameFragment : View.OnClickListener, Fragment(){
 
         // TODO: FIX!!!
 
-        Log.d("Button", ""+ button.id)
+        Log.d("Button.id", ""+ button.id)
+        Log.d("Button.tag", ""+ button.tag)
 
-
-
-
-        ////////
-
-        // checkWinner()
-
-        if (player1Moves.contains(button.id as Int) || player2Moves.contains(button.id as Int)) {
+        if (player1Moves.contains(cellId) || player2Moves.contains(cellId)) {
             Toast.makeText(activity, "Move already made", Toast.LENGTH_SHORT).show()
             return
         }
 
-
-        ////////
-
-
-
         if (activePlayer == 1) {
-            player1Moves.add(button.id as Int)
+            player1Moves.add(cellId)
         } else {
-            player2Moves.add(button.id as Int)
+            player2Moves.add(cellId)
         }
 
 
@@ -101,6 +90,24 @@ class GameFragment : View.OnClickListener, Fragment(){
         button.isEnabled = false
 
         setActivePlayer()
+
+        ////////
+
+        // checkWinner()
+
+        val test = ArrayList<Int>()
+        test.add(1)
+        test.add(2)
+        test.add(3)
+
+        if (player1Moves.containsAll(test)) {
+            Toast.makeText(activity, "Winner Found!", Toast.LENGTH_SHORT).show()
+
+        }
+
+
+
+        ////////
 
     }
 
