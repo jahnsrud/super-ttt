@@ -12,16 +12,15 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_game.*
 import no.jahnsrud.tictactoe.Models.Player
 
-class GameFragment : View.OnClickListener, Fragment(){
+class GameFragment : Fragment(){
 
-    var player1 = Player("Player 1", false)
-    var player2 = Player("Player 2", false)
+    val player1 = Player("Player 1", false)
+    val player2 = Player("Player 2", false)
 
     var activePlayer = 1
 
     var isAIEnabled = false
 
-    val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +37,12 @@ class GameFragment : View.OnClickListener, Fragment(){
             resetGame()
         })
 
+        resetGame()
+
+        val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
             it.setOnClickListener({ didMakeMove(it as Button) })
         }
-
-        resetGame()
 
     }
 
@@ -70,9 +70,6 @@ class GameFragment : View.OnClickListener, Fragment(){
 
     private fun performGameLogic(button: Button, cellId: Int) {
 
-        // TODO: FIX!!!
-
-        Log.d("Button.id", ""+ button.id)
         Log.d("Button.tag", ""+ button.tag)
 
         if (player1.moves.contains(cellId) || player2.moves.contains(cellId)) {
@@ -80,18 +77,13 @@ class GameFragment : View.OnClickListener, Fragment(){
             return
         }
 
-        if (activePlayer == 1) {
-            player1.moves.add(cellId)
-        } else {
-            player2.moves.add(cellId)
-        }
-
-
         var symbol = ""
 
         if (activePlayer == 1) {
+            player1.moves.add(cellId)
             symbol = "X"
         } else {
+            player2.moves.add(cellId)
             symbol = "O"
         }
 
@@ -103,59 +95,58 @@ class GameFragment : View.OnClickListener, Fragment(){
     }
 
     fun checkWinner() {
-        val test = ArrayList<Int>()
-        test.add(1)
-        test.add(2)
-        test.add(3)
 
-        /*
-        for (i in winningMoves) {
-            for (j in winningMoves[i]) {
+        if (winningMoves.any{
 
+                player1.moves.containsAll(it.asList())
 
-
-            }
-        }*/
-
-        if (player1.moves.containsAll(test)) {
+            }) {
             Toast.makeText(activity, "Player 1 won 🥳", Toast.LENGTH_SHORT).show()
-        } else if (player2.moves.containsAll(test)) {
+            endGame()
+
+
+        } else if (winningMoves.any {
+                player2.moves.containsAll(it.asList())
+
+            }) {
             Toast.makeText(activity, "Player 2 won 🥳", Toast.LENGTH_SHORT).show()
-        }
+            endGame()
 
-        if (player1.moves.size + player2.moves.size == 9) {
+        } else if (player1.moves.size + player2.moves.size == 9) {
             Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()
-            return
+            endGame()
+        } else {
+            setActivePlayer()
         }
-
-        setActivePlayer()
 
     }
 
+    fun endGame() {
+        val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
+        gameButtons.forEach {
+            it.isEnabled = false
+
+
+        }
+
+    }
+
+    /*
+    Mulige vinnerkombinasjoner
+    */
 
     val winningMoves: Array<IntArray> = arrayOf(
         intArrayOf(1, 2, 3),
         intArrayOf(1, 4, 7),
         intArrayOf(1, 5, 9),
+        intArrayOf(2, 5, 8),
         intArrayOf(3, 6, 9),
         intArrayOf(4, 5, 6),
         intArrayOf(7, 5, 3),
         intArrayOf(7, 8, 9)
 
     )
-    /*
 
-    Mulige vinnerkombinasjoner
-
-    1, 2, 3
-    1, 4, 7
-    1, 5, 9
-    3, 6, 9
-    4, 5, 6
-    7, 5, 3
-    7, 8, 9
-
-     */
 
 
     fun setActivePlayer() {
@@ -177,9 +168,10 @@ class GameFragment : View.OnClickListener, Fragment(){
 
         currentPlayerTextField.setText(player1.name)
 
+        val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
             it.isEnabled = true
-            it.text = "/"
+            it.text = "-"
         }
 
     }

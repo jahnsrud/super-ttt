@@ -35,17 +35,20 @@
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button1" android:tag="1"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
                 <Button
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button2" android:tag="2"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
                 <Button
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button3" android:tag="3"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -55,17 +58,20 @@
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button4" android:tag="4"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
                 <Button
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button5" android:tag="5"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
                 <Button
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button6" android:tag="6"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -75,17 +81,20 @@
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button7" android:tag="7"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
                 <Button
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button8" android:tag="8"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
                 <Button
                         android:text="/"
                         android:layout_width="80dp"
                         android:layout_height="80dp" android:id="@+id/button9" android:tag="9"
-                        style="@style/Widget.AppCompat.Button.Borderless"/>
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
+                        android:textStyle="bold" android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -97,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="26dp"/>
             <Button
-                    android:text="Reset"
+                    android:text="Restart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/resetButton"/>
         </LinearLayout>
