@@ -28,7 +28,7 @@ class StartFragment : Fragment() {
 
         playButton.setOnClickListener({
             savePlayers()
-            Navigation.findNavController(this.view!!).navigate(R.id.gameFragment)
+            Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)
         })
 
         aiSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
