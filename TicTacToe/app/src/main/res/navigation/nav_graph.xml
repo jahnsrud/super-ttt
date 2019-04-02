@@ -11,8 +11,11 @@
                 app:popEnterAnim="@anim/slide_in_right"/>
         <action android:id="@+id/action_mainFragment_to_leaderboardFragment" app:destination="@id/leaderboardFragment"/>
     </fragment>
-    <fragment android:id="@+id/gameFragment" android:name="no.jahnsrud.tictactoe.GameFragment"
-              android:label="fragment_game" tools:layout="@layout/fragment_game"/>
+    <fragment android:id="@+id/gameFragment"
+              android:name="no.jahnsrud.tictactoe.GameFragment"
+              android:label="fragment_game"
+              tools:layout="@layout/fragment_game"/>
+
     <fragment android:id="@+id/startFragment" android:name="no.jahnsrud.tictactoe.StartFragment"
               android:label="fragment_start" tools:layout="@layout/fragment_start">
         <action android:id="@+id/action_startFragment_to_gameFragment" app:destination="@id/gameFragment"

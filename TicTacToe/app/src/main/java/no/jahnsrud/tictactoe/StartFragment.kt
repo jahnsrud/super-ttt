@@ -13,7 +13,7 @@ import android.widget.CompoundButton
 
 class StartFragment : Fragment() {
 
-    var shouldPlayAgainAi:Boolean = false
+    var shouldPlayAgainstAi:Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,12 +28,16 @@ class StartFragment : Fragment() {
 
         playButton.setOnClickListener({
             savePlayers()
+
             Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)
+
+
+
         })
 
         aiSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
 
-            shouldPlayAgainAi = isChecked
+            shouldPlayAgainstAi = isChecked
             loadPlayers()
 
         })
@@ -54,15 +58,14 @@ class StartFragment : Fragment() {
         val player1 = PreferencesHelper.loadPlayer("1")
         player1TextField.setText(player1)
 
-        // TODO: Refaktorer slik at onResume ikke overskriver
-        if (shouldPlayAgainAi) {
+        if (shouldPlayAgainstAi) {
             player2TextField.setText("TTTBot")
         } else {
             val player2 = PreferencesHelper.loadPlayer("2")
             player2TextField.setText(player2)
         }
 
-        player2TextField.isEnabled = !shouldPlayAgainAi
+        player2TextField.isEnabled = !shouldPlayAgainstAi
 
     }
 

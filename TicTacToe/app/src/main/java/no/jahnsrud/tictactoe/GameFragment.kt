@@ -21,6 +21,8 @@ class GameFragment : View.OnClickListener, Fragment(){
 
     var isAIEnabled = false
 
+    val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,14 +35,14 @@ class GameFragment : View.OnClickListener, Fragment(){
         super.onStart()
 
         resetButton.setOnClickListener({
-            reset()
+            resetGame()
         })
 
-        terribleSetOnClickListener()
+        gameButtons.forEach {
+            it.setOnClickListener({ didMakeMove(it as Button) })
+        }
 
-        //TODO: Improve
-        currentPlayerTextField.setText(player1.name)
-
+        resetGame()
 
     }
 
@@ -166,45 +168,20 @@ class GameFragment : View.OnClickListener, Fragment(){
         }
     }
 
-    override fun onClick(v: View?) {
-
-        print("ID: " + v?.tag)
-
-        when (v?.id) {
-
-
-        }
-
-    }
-
-    fun reset() {
+    fun resetGame() {
 
         player1.clearMoves()
         player2.clearMoves()
 
         activePlayer = 1
 
-        // TODO: Reset all buttons
+        currentPlayerTextField.setText(player1.name)
 
+        gameButtons.forEach {
+            it.isEnabled = true
+            it.text = "/"
+        }
 
-
-        Toast.makeText(activity, "Kommer snart", Toast.LENGTH_SHORT).show()
-    }
-
-
-
-
-    private fun terribleSetOnClickListener() {
-
-        button1.setOnClickListener({ didMakeMove(button1) })
-        button2.setOnClickListener({ didMakeMove(button2) })
-        button3.setOnClickListener({ didMakeMove(button3) })
-        button4.setOnClickListener({ didMakeMove(button4) })
-        button5.setOnClickListener({ didMakeMove(button5) })
-        button6.setOnClickListener({ didMakeMove(button6) })
-        button7.setOnClickListener({ didMakeMove(button7) })
-        button8.setOnClickListener({ didMakeMove(button8) })
-        button9.setOnClickListener({ didMakeMove(button9) })
     }
 
 
