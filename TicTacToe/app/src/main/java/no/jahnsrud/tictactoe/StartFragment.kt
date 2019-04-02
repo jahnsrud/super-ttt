@@ -41,7 +41,7 @@ class StartFragment : Fragment() {
     }
 
     fun savePlayer() {
-        val player = Player(player1TextField.text.toString(), 0)
+        val player = Player(player1TextField.text.toString(), ArrayList<Int>(), false)
         PreferencesHelper.savePlayer(player)
 
     }

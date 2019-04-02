@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_game.*
+import no.jahnsrud.tictactoe.Models.Player
 
 class GameFragment : View.OnClickListener, Fragment(){
 
-    var player1Moves = ArrayList<Int>()
-    var player2Moves = ArrayList<Int>()
+    var player1 = Player("Player 1", ArrayList<Int>(), false)
+    var player2 = Player("Player 2", ArrayList<Int>(), false)
+
     var activePlayer = 1
     var isAIEnabled = false
 
@@ -66,15 +68,15 @@ class GameFragment : View.OnClickListener, Fragment(){
         Log.d("Button.id", ""+ button.id)
         Log.d("Button.tag", ""+ button.tag)
 
-        if (player1Moves.contains(cellId) || player2Moves.contains(cellId)) {
+        if (player1.moves.contains(cellId) || player2.moves.contains(cellId)) {
             Toast.makeText(activity, "Move already made", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (activePlayer == 1) {
-            player1Moves.add(cellId)
+            player1.moves.add(cellId)
         } else {
-            player2Moves.add(cellId)
+            player2.moves.add(cellId)
         }
 
 
@@ -93,22 +95,35 @@ class GameFragment : View.OnClickListener, Fragment(){
 
         ////////
 
-        // checkWinner()
 
-        val test = ArrayList<Int>()
-        test.add(1)
-        test.add(2)
-        test.add(3)
-
-        if (player1Moves.containsAll(test)) {
-            Toast.makeText(activity, "Winner Found!", Toast.LENGTH_SHORT).show()
-
-        }
+        checkWinner()
 
 
 
         ////////
 
+    }
+
+    fun checkWinner() {
+        val test = ArrayList<Int>()
+        test.add(1)
+        test.add(2)
+        test.add(3)
+
+        /*
+        for (i in winningMoves) {
+            for (j in winningMoves[i]) {
+
+
+
+            }
+        }*/
+
+        if (player1.moves.containsAll(test)) {
+            Toast.makeText(activity, "Player 1 won 🥳", Toast.LENGTH_SHORT).show()
+        } else if (player2.moves.containsAll(test)) {
+            Toast.makeText(activity, "Player 2 won 🥳", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
@@ -158,8 +173,8 @@ class GameFragment : View.OnClickListener, Fragment(){
 
     fun reset() {
 
-        player1Moves.clear()
-        player2Moves.clear()
+        player1.moves.clear()
+        player2.moves.clear()
 
         activePlayer = 1
 

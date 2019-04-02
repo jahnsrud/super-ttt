@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
                 style="@style/Widget.AppCompat.Button"/>
         <Button
-                android:text="Rules (?)"
+                android:text="Rules"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content" android:id="@+id/playButton3"
                 style="@style/Widget.AppCompat.Button.Small"/>
