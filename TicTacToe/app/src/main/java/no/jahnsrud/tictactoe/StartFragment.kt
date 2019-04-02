@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_start.*
 import no.jahnsrud.tictactoe.Models.Player
+import android.widget.CompoundButton
 
 
 class StartFragment : Fragment() {
+
+    var shouldPlayAgainAi:Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +29,13 @@ class StartFragment : Fragment() {
         playButton.setOnClickListener({
             savePlayers()
             Navigation.findNavController(this.view!!).navigate(R.id.gameFragment)
+        })
+
+        aiSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+
+            shouldPlayAgainAi = isChecked
+            loadPlayers()
+
         })
 
         PreferencesHelper.init(this.context!!)
@@ -44,8 +54,15 @@ class StartFragment : Fragment() {
         val player1 = PreferencesHelper.loadPlayer("1")
         player1TextField.setText(player1)
 
-        val player2 = PreferencesHelper.loadPlayer("2")
-        player2TextField.setText(player2)
+        // TODO: Refaktorer slik at onResume ikke overskriver
+        if (shouldPlayAgainAi) {
+            player2TextField.setText("TTTBot")
+        } else {
+            val player2 = PreferencesHelper.loadPlayer("2")
+            player2TextField.setText(player2)
+        }
+
+        player2TextField.isEnabled = !shouldPlayAgainAi
 
     }
 

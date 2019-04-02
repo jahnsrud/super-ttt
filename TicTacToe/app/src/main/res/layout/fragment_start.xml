@@ -39,7 +39,7 @@
             <Switch
                     android:text="Against AI"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/switch1" android:textOn="AI Enabled"
+                    android:layout_height="wrap_content" android:id="@+id/aiSwitch" android:textOn="AI Enabled"
                     android:textOff="AI Disabled"/>
             <Button
                     android:text="Start"
