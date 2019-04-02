@@ -38,6 +38,10 @@ class GameFragment : View.OnClickListener, Fragment(){
 
         terribleSetOnClickListener()
 
+        //TODO: Improve
+        currentPlayerTextField.setText(player1.name)
+
+
     }
 
 
@@ -117,6 +121,11 @@ class GameFragment : View.OnClickListener, Fragment(){
             Toast.makeText(activity, "Player 2 won 🥳", Toast.LENGTH_SHORT).show()
         }
 
+        if (player1.moves.size + player2.moves.size == 9) {
+            Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         setActivePlayer()
 
     }
@@ -150,8 +159,10 @@ class GameFragment : View.OnClickListener, Fragment(){
     fun setActivePlayer() {
         if (activePlayer == 1) {
             activePlayer = 2
+            currentPlayerTextField.setText(player2.name)
         } else {
             activePlayer = 1
+            currentPlayerTextField.setText(player1.name)
         }
     }
 

@@ -13,13 +13,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp" android:background="@android:color/holo_orange_light">
             <TextView
+                    android:text="CURRENT_PLAYER"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/currentPlayerTextField"
+                    android:textAlignment="center" android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" android:textSize="18sp"/>
+            <TextView
                     android:text="00:00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/textView3" android:textAlignment="center"/>
-            <CheckBox
-                    android:text="PLAYER_HERE"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/checkBox"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -94,14 +96,6 @@
             <Space
                     android:layout_width="match_parent"
                     android:layout_height="26dp"/>
-            <TextView
-                    android:text="PLAYER_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/textView4"/>
-            <TextView
-                    android:text="PLAYER_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/PLAYER_2"/>
             <Button
                     android:text="Reset"
                     android:layout_width="match_parent"
