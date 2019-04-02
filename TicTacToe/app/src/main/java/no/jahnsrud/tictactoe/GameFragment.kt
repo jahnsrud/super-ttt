@@ -16,6 +16,7 @@ class GameFragment : View.OnClickListener, Fragment(){
     var player1Moves = ArrayList<Int>()
     var player2Moves = ArrayList<Int>()
     var activePlayer = 1
+    var isAIEnabled = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,18 +39,48 @@ class GameFragment : View.OnClickListener, Fragment(){
 
 
 
-    fun didMakeMove(button: Button) {
+    fun didMakeMove(selectedButton: Button) {
 
-        // Log.d("Button", ""+ button.id)
+        var cellId = 0
+
+        when (selectedButton.id) {
+            R.id.button1 -> cellId=1
+            R.id.button2 -> cellId=2
+            R.id.button3 -> cellId=3
+            R.id.button4 -> cellId=4
+            R.id.button5 -> cellId=5
+            R.id.button6 -> cellId=6
+            R.id.button7 -> cellId=7
+            R.id.button8 -> cellId=8
+            R.id.button9 -> cellId=9
+        }
+
+        performGameLogic(selectedButton, cellId)
+
+    }
+
+    private fun performGameLogic(button: Button, cellId: Int) {
 
         // TODO: FIX!!!
 
         Log.d("Button", ""+ button.id)
 
+
+
+
+        ////////
+
+        // checkWinner()
+
         if (player1Moves.contains(button.id as Int) || player2Moves.contains(button.id as Int)) {
             Toast.makeText(activity, "Move already made", Toast.LENGTH_SHORT).show()
             return
         }
+
+
+        ////////
+
+
 
         if (activePlayer == 1) {
             player1Moves.add(button.id as Int)
@@ -73,6 +104,32 @@ class GameFragment : View.OnClickListener, Fragment(){
 
     }
 
+
+    val winningMoves: Array<IntArray> = arrayOf(
+        intArrayOf(1, 2, 3),
+        intArrayOf(1, 4, 7),
+        intArrayOf(1, 5, 9),
+        intArrayOf(3, 6, 9),
+        intArrayOf(4, 5, 6),
+        intArrayOf(7, 5, 3),
+        intArrayOf(7, 8, 9)
+
+    )
+    /*
+
+    Mulige vinnerkombinasjoner
+
+    1, 2, 3
+    1, 4, 7
+    1, 5, 9
+    3, 6, 9
+    4, 5, 6
+    7, 5, 3
+    7, 8, 9
+
+     */
+
+
     fun setActivePlayer() {
         if (activePlayer == 1) {
             activePlayer = 2
@@ -93,22 +150,19 @@ class GameFragment : View.OnClickListener, Fragment(){
     }
 
     fun reset() {
+
+        player1Moves.clear()
+        player2Moves.clear()
+
+        activePlayer = 1
+
+        // TODO: Reset all buttons
+
+
+
         Toast.makeText(activity, "Kommer snart", Toast.LENGTH_SHORT).show()
     }
 
-    /*
-
-    Mulige vinnerkombinasjoner
-
-    1, 2, 3
-    1, 4, 7
-    1, 5, 9
-    3, 6, 9
-    4, 5, 6
-    7, 5, 3
-    7, 8, 9
-
-     */
 
 
 

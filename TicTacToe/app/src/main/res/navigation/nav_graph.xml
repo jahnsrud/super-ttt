@@ -8,7 +8,7 @@
         <action android:id="@+id/action_mainFragment_to_startFragment"
                 app:destination="@+id/startFragment"
                 app:enterAnim="@anim/slide_in_right"
-                app:popExitAnim="@anim/slide_in_left"/>
+                app:popEnterAnim="@anim/slide_in_right"/>
         <action android:id="@+id/action_mainFragment_to_leaderboardFragment" app:destination="@id/leaderboardFragment"/>
     </fragment>
     <fragment android:id="@+id/gameFragment" android:name="no.jahnsrud.tictactoe.GameFragment"
