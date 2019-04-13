@@ -73,15 +73,15 @@ class GameFragment : Fragment(){
         var button:Button = Button(activity)
 
         when (index) {
-            0 -> button=button1
-            1 -> button=button2
-            2 -> button=button3
-            3 -> button=button4
-            4 -> button=button5
-            5 -> button=button6
-            6 -> button=button7
-            7 -> button=button8
-            8 -> button=button9
+            1 -> button=button1
+            2 -> button=button2
+            3 -> button=button3
+            4 -> button=button4
+            5 -> button=button5
+            6 -> button=button6
+            7 -> button=button7
+            8 -> button=button8
+            9 -> button=button9
 
         }
 
@@ -142,17 +142,21 @@ class GameFragment : Fragment(){
 
         // Husk delay
 
-        var random = (0..8).random()
+        var random = (1..9).random()
+
 
         while (!canMakeMove(random)) {
             random = (0..8).random()
 
         }
 
-        if (canMakeMove(random)) {
-            makeMove(getButtonFromIndex(random), random)
+        /*
+          if (player1.moves.containsAll(listOf(1, 2))) {
+            random = 3;
         }
+         */
 
+        makeMove(getButtonFromIndex(random), random)
 
 
     }
