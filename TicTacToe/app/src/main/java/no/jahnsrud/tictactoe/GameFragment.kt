@@ -1,7 +1,7 @@
 package no.jahnsrud.tictactoe
 
-
 import android.os.Bundle
+import android.os.SystemClock
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,6 +22,9 @@ class GameFragment : Fragment(){
     val PLAYER_1_SYMBOL = "X"
     val PLAYER_2_SYMBOL = "O"
 
+    var gameButtons = arrayOf<Button>()
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,16 +36,16 @@ class GameFragment : Fragment(){
     override fun onStart() {
         super.onStart()
 
+        gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
+        gameButtons.forEach {
+            it.setOnClickListener({ didInteractWithGameBoard(it as Button) })
+        }
+
         resetButton.setOnClickListener({
             resetGame()
         })
 
         resetGame()
-
-        val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
-        gameButtons.forEach {
-            it.setOnClickListener({ didInteractWithGameBoard(it as Button) })
-        }
 
     }
 
@@ -183,12 +186,12 @@ class GameFragment : Fragment(){
     }
 
     fun endGame() {
-        val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
             it.isEnabled = false
 
-
         }
+
+        timer.stop()
 
     }
 
@@ -236,11 +239,13 @@ class GameFragment : Fragment(){
 
         currentPlayerTextField.setText(player1.name)
 
-        val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
             it.isEnabled = true
             it.text = "-"
         }
+
+        timer.base = SystemClock.elapsedRealtime()
+        timer.start()
 
     }
 
