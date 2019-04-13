@@ -36,10 +36,6 @@ class MainFragment : Fragment() {
             openGame()
         })
 
-        playButton.setOnClickListener({
-            openGame()
-        })
-
         leaderboardButton.setOnClickListener({
             Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_leaderboardFragment)
 
