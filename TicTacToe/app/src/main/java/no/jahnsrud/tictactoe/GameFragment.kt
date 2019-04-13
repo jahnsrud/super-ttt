@@ -15,12 +15,12 @@ import no.jahnsrud.tictactoe.Models.Player
 class GameFragment : Fragment(){
 
     val player1 = Player("Player 1", false)
-    val player2 = Player("Player 2", false)
+    val player2 = Player("Player 2", true)
 
     var activePlayer = 1
 
-    var isAIEnabled = false
-
+    val PLAYER_1_SYMBOL = "X"
+    val PLAYER_2_SYMBOL = "O"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,50 +41,89 @@ class GameFragment : Fragment(){
 
         val gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
-            it.setOnClickListener({ didMakeMove(it as Button) })
+            it.setOnClickListener({ didInteractWithGameBoard(it as Button) })
         }
 
     }
 
+    fun getIndexFromButton(button: Button) : Int {
+        var index = 0
 
-
-    fun didMakeMove(selectedButton: Button) {
-
-        var cellId = 0
-
-        when (selectedButton.id) {
-            R.id.button1 -> cellId=1
-            R.id.button2 -> cellId=2
-            R.id.button3 -> cellId=3
-            R.id.button4 -> cellId=4
-            R.id.button5 -> cellId=5
-            R.id.button6 -> cellId=6
-            R.id.button7 -> cellId=7
-            R.id.button8 -> cellId=8
-            R.id.button9 -> cellId=9
+        when (button.id) {
+            R.id.button1 -> index=1
+            R.id.button2 -> index=2
+            R.id.button3 -> index=3
+            R.id.button4 -> index=4
+            R.id.button5 -> index=5
+            R.id.button6 -> index=6
+            R.id.button7 -> index=7
+            R.id.button8 -> index=8
+            R.id.button9 -> index=9
         }
 
-        performGameLogic(selectedButton, cellId)
+        return index
 
     }
 
-    private fun performGameLogic(button: Button, cellId: Int) {
+    fun getButtonFromIndex(index: Int) : Button {
 
-        Log.d("Button.tag", ""+ button.tag)
+        var button:Button = Button(activity)
 
-        if (player1.moves.contains(cellId) || player2.moves.contains(cellId)) {
+        when (index) {
+            0 -> button=button1
+            1 -> button=button2
+            2 -> button=button3
+            3 -> button=button4
+            4 -> button=button5
+            5 -> button=button6
+            6 -> button=button7
+            7 -> button=button8
+            8 -> button=button9
+
+        }
+
+        return button;
+    }
+
+    fun didInteractWithGameBoard(selectedButton: Button) {
+
+        val index = getIndexFromButton(selectedButton)
+
+        if (canMakeMove(index)) {
+            makeMove(selectedButton, index)
+
+        } else {
             Toast.makeText(activity, "Move already made", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+    fun canMakeMove(index: Int) : Boolean {
+
+        if (player1.moves.contains(index) || player2.moves.contains(index)) {
+            return false
+        }
+
+        return true
+
+    }
+
+    private fun makeMove(button: Button, index: Int) {
+
+        if (!canMakeMove(index)) {
             return
         }
+
+        Log.d("Button.tag", ""+ button.tag)
 
         var symbol = ""
 
         if (activePlayer == 1) {
-            player1.moves.add(cellId)
-            symbol = "X"
+            player1.moves.add(index)
+            symbol = PLAYER_1_SYMBOL
         } else {
-            player2.moves.add(cellId)
-            symbol = "O"
+            player2.moves.add(index)
+            symbol = PLAYER_2_SYMBOL
         }
 
         button.setText(symbol)
@@ -93,6 +132,28 @@ class GameFragment : Fragment(){
         checkWinner()
 
     }
+
+    fun aiMakeMove() {
+
+        // Veldig midlertidig!
+
+        // Husk delay
+
+        var random = (0..8).random()
+
+        while (!canMakeMove(random)) {
+            random = (0..8).random()
+
+        }
+
+        if (canMakeMove(random)) {
+            makeMove(getButtonFromIndex(random), random)
+        }
+
+
+
+    }
+
 
     fun checkWinner() {
 
@@ -153,10 +214,17 @@ class GameFragment : Fragment(){
         if (activePlayer == 1) {
             activePlayer = 2
             currentPlayerTextField.setText(player2.name)
+
+            if (player2.isAI) {
+                aiMakeMove()
+            }
+
         } else {
             activePlayer = 1
             currentPlayerTextField.setText(player1.name)
         }
+
+
     }
 
     fun resetGame() {
