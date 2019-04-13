@@ -1,6 +1,7 @@
 package no.jahnsrud.tictactoe
 
 import android.os.Bundle
+import android.os.Handler
 import android.os.SystemClock
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -138,27 +139,35 @@ class GameFragment : Fragment(){
 
     fun aiMakeMove() {
 
-        // Veldig midlertidig!
 
-        // Husk delay
+        val handler = Handler()
+        handler.postDelayed({
 
-        var random = (1..9).random()
+            // Veldig midlertidig!
+            var random = getRandomIndex()
+
+            while (!canMakeMove(random)) {
+                random = getRandomIndex()
+
+            }
+
+            /*
+              if (player1.moves.containsAll(listOf(1, 2))) {
+                random = 3;
+            }
+             */
+
+            makeMove(getButtonFromIndex(random), random)
+
+        }, 100)
 
 
-        while (!canMakeMove(random)) {
-            random = (0..8).random()
-
-        }
-
-        /*
-          if (player1.moves.containsAll(listOf(1, 2))) {
-            random = 3;
-        }
-         */
-
-        makeMove(getButtonFromIndex(random), random)
 
 
+    }
+
+    fun getRandomIndex() : Int {
+        return (1..9).random()
     }
 
 
@@ -245,7 +254,7 @@ class GameFragment : Fragment(){
 
         gameButtons.forEach {
             it.isEnabled = true
-            it.text = "-"
+            it.text = ""
         }
 
         timer.base = SystemClock.elapsedRealtime()

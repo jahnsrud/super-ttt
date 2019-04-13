@@ -7,30 +7,55 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:gravity="center">
-        <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" tools:src="@tools:sample/avatars" android:id="@+id/imageView"
-                app:srcCompat="@mipmap/ic_launcher"/>
+            android:layout_height="match_parent" android:background="@color/lightGrayBackground">
         <TextView
-                android:text="Tic Tac Toe"
+                android:text="Super Tic Tac"
                 android:layout_width="match_parent"
-                android:layout_height="76dp" android:id="@+id/textView" android:textStyle="bold"
-                android:textSize="28sp" android:textAlignment="center" android:textColor="@android:color/black"/>
-        <Button
-                android:text="Play"
-                android:layout_width="200dp"
-                android:layout_height="113dp" android:id="@+id/playButton"
-                style="@style/Widget.AppCompat.Button.Colored" android:textSize="24sp" android:textStyle="bold"/>
-        <Button
-                android:text="Leaderboard"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
-                style="@style/Widget.AppCompat.Button"/>
-        <Button
-                android:text="Rules"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content" android:id="@+id/playButton3"
-                style="@style/Widget.AppCompat.Button.Small"/>
+                android:layout_height="158dp" android:id="@+id/textView" android:textStyle="bold"
+                android:textSize="40sp" android:textAlignment="center" android:textColor="@android:color/black"
+                android:gravity="center"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginRight="20dp">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:background="@color/onePlayerBackground"
+                    android:layout_marginBottom="8dp">
+                <ImageView
+                        android:src="@drawable/player_mario"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" android:id="@+id/imageView"
+                        android:background="@drawable/player_mario" android:scaleType="centerInside"/>
+                <Button
+                        android:text="1 PLAYER: BOT"
+                        android:layout_width="match_parent"
+                        android:layout_height="113dp" android:id="@+id/playButton"
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="24sp"
+                        android:textStyle="bold" android:textColor="@android:color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:background="@color/twoPlayerBackground">
+                <ImageView
+                        android:src="@drawable/player_mario"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" android:id="@+id/imageView"
+                        android:background="@drawable/player_mario" android:scaleType="centerInside"/>
+                <Button
+                        android:text="2 PLAYER: BATTLE"
+                        android:layout_width="match_parent"
+                        android:layout_height="113dp" android:id="@+id/playButton"
+                        style="@style/Widget.AppCompat.Button.Borderless" android:textSize="24sp"
+                        android:textStyle="bold" android:textColor="@android:color/white"/>
+            </LinearLayout>
+            <Button
+                    android:text="Leaderboard"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
+                    style="@style/Widget.AppCompat.Button"/>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>
