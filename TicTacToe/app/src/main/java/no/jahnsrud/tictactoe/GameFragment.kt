@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_game.*
 import no.jahnsrud.tictactoe.Models.Player
 
@@ -44,6 +45,11 @@ class GameFragment : Fragment(){
 
         resetButton.setOnClickListener({
             resetGame()
+        })
+
+        endGameButton.setOnClickListener({
+            Navigation.findNavController(this.view!!).popBackStack()
+
         })
 
         resetGame()

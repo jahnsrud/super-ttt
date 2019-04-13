@@ -120,12 +120,16 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="97dp"
+                android:layout_height="154dp"
                 android:gravity="center">
             <Button
                     android:text="Restart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/resetButton"/>
+            <Button
+                    android:text="End Game"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/endGameButton"/>
 
         </LinearLayout>
     </LinearLayout>
