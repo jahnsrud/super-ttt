@@ -11,8 +11,8 @@
         <TextView
                 android:text="Super Tic Tac"
                 android:layout_width="match_parent"
-                android:layout_height="158dp" android:id="@+id/textView" android:textStyle="bold"
-                android:textSize="40sp" android:textAlignment="center" android:textColor="@android:color/black"
+                android:layout_height="104dp" android:id="@+id/textView" android:textStyle="bold"
+                android:textSize="32sp" android:textAlignment="center" android:textColor="@android:color/black"
                 android:gravity="center"/>
         <LinearLayout
                 android:orientation="vertical"
@@ -22,38 +22,50 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:background="@color/onePlayerBackground"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp" android:gravity="center" android:id="@+id/player1Box">
                 <ImageView
                         android:src="@drawable/player_mario"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp" android:id="@+id/imageView"
+                        android:layout_width="56dp"
+                        android:layout_height="75dp" android:id="@+id/imageView"
                         android:background="@drawable/player_mario" android:scaleType="centerInside"/>
                 <Button
                         android:text="1 PLAYER: BOT"
                         android:layout_width="match_parent"
-                        android:layout_height="113dp" android:id="@+id/playButton"
+                        android:layout_height="80dp" android:id="@+id/playButton"
                         style="@style/Widget.AppCompat.Button.Borderless" android:textSize="24sp"
                         android:textStyle="bold" android:textColor="@android:color/white"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:background="@color/twoPlayerBackground">
-                <ImageView
-                        android:src="@drawable/player_mario"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp" android:id="@+id/imageView"
-                        android:background="@drawable/player_mario" android:scaleType="centerInside"/>
+                    android:layout_height="match_parent" android:background="@color/twoPlayerBackground"
+                    android:gravity="center" android:id="@+id/player2Box">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:gravity="center">
+                    <ImageView
+                            android:src="@drawable/player_mario"
+                            android:layout_width="56dp"
+                            android:layout_height="75dp" android:id="@+id/imageView"
+                            android:background="@drawable/player_mario" android:scaleType="centerInside"/>
+                    <ImageView
+                            android:src="@drawable/player_mario"
+                            android:layout_width="56dp"
+                            android:layout_height="75dp" android:id="@+id/imageView2"
+                            android:background="@drawable/player_luigi" android:scaleType="fitXY"
+                    />
+                </LinearLayout>
                 <Button
                         android:text="2 PLAYER: BATTLE"
                         android:layout_width="match_parent"
-                        android:layout_height="113dp" android:id="@+id/playButton"
+                        android:layout_height="80dp" android:id="@+id/playButton"
                         style="@style/Widget.AppCompat.Button.Borderless" android:textSize="24sp"
                         android:textStyle="bold" android:textColor="@android:color/white"/>
             </LinearLayout>
             <Button
                     android:text="Leaderboard"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
                     style="@style/Widget.AppCompat.Button"/>
         </LinearLayout>

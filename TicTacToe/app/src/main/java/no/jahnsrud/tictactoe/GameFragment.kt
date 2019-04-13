@@ -39,7 +39,7 @@ class GameFragment : Fragment(){
 
         gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
-            it.setOnClickListener({ didInteractWithGameBoard(it as Button) })
+            it.setOnClickListener{ didInteractWithGameBoard(it as Button) }
         }
 
         resetButton.setOnClickListener({
@@ -160,7 +160,6 @@ class GameFragment : Fragment(){
             makeMove(getButtonFromIndex(random), random)
 
         }, 100)
-
 
 
 

@@ -27,9 +27,17 @@ class MainFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        playButton.setOnClickListener({
-            Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_startFragment)
 
+        player1Box.setOnClickListener({
+            openGame()
+        })
+
+        player2Box.setOnClickListener({
+            openGame()
+        })
+
+        playButton.setOnClickListener({
+            openGame()
         })
 
         leaderboardButton.setOnClickListener({
@@ -38,6 +46,10 @@ class MainFragment : Fragment() {
         })
     }
 
+    fun openGame() {
+        context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
+        Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_startFragment)
+    }
 
 
 }
