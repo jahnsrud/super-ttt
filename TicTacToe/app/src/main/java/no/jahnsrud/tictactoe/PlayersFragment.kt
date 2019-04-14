@@ -28,7 +28,7 @@ class PlayersFragment : Fragment() {
 
         playButton.setOnClickListener({
             savePlayers()
-
+            this.context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
             Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)
 
 

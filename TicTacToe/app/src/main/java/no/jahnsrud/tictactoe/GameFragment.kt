@@ -31,7 +31,6 @@ class GameFragment : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
@@ -184,6 +183,8 @@ class GameFragment : Fragment(){
 
             }) {
             Toast.makeText(activity, "Player 1 won 🥳", Toast.LENGTH_SHORT).show()
+            context?.let { SoundEffectPlayer.playWin(it) }
+
             endGame()
 
 
@@ -192,10 +193,14 @@ class GameFragment : Fragment(){
 
             }) {
             Toast.makeText(activity, "Player 2 won 🥳", Toast.LENGTH_SHORT).show()
+            context?.let { SoundEffectPlayer.playLost(it) }
+
             endGame()
 
         } else if (player1.moves.size + player2.moves.size == 9) {
             Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()
+            context?.let { SoundEffectPlayer.playLost(it) }
+
             endGame()
         } else {
             setActivePlayer()
