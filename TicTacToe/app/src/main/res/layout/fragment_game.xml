@@ -11,39 +11,49 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="160dp" android:background="@color/lightGrayBackground" android:gravity="center">
+                android:layout_height="130dp" android:background="@color/lightGrayBackground" android:gravity="center">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="72dp" android:gravity="center">
-                <ImageView
-                        android:src="@drawable/mario_selected"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp" android:id="@+id/player1Image"
-                        android:layout_marginRight="4dp"/>
-                <ImageView
-                        android:src="@drawable/luigi_unselected"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp" android:id="@+id/player2Image"
-                        android:layout_marginLeft="4dp"/>
+                    android:layout_height="83dp" android:gravity="center"
+                    android:layout_gravity="center|center_vertical">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:paddingRight="8dp">
+                    <ImageView
+                            android:src="@drawable/mario_selected"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" android:id="@+id/player1Image"
+                            android:layout_marginBottom="4dp"/>
+                    <TextView
+                            android:text="PLAYER"
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp" android:id="@+id/player1Name" android:textSize="9sp"
+                            android:textAlignment="center" android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:paddingLeft="8dp">
+                    <ImageView
+                            android:src="@drawable/luigi_unselected"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" android:id="@+id/player2Image"
+                            android:layout_marginBottom="4dp"/>
+                    <TextView
+                            android:text="PLAYER"
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp" android:id="@+id/player2Name" android:textSize="9sp"
+                            android:textAlignment="center" android:textStyle="bold"/>
+                </LinearLayout>
             </LinearLayout>
-            <TextView
-                    android:text="CURRENT_PLAYER"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/currentPlayerTextField"
-                    android:textAlignment="center" android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold" android:textSize="22sp"/>
-            <Chronometer
-                    android:id="@+id/timer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center" android:textStyle="bold"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
-                android:background="@android:color/background_light" android:padding="24dp">
+                android:background="@android:color/background_light" android:padding="1dp">
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
@@ -137,6 +147,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="bottom|center_horizontal" android:layout_marginBottom="16dp">
+            <Chronometer
+                    android:id="@+id/timer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center" android:textStyle="bold" android:layout_marginBottom="16dp"/>
             <Button
                     android:text="Pause"
                     android:layout_width="match_parent"

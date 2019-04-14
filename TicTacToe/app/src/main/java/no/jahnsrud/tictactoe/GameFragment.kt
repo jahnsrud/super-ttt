@@ -1,5 +1,6 @@
 package no.jahnsrud.tictactoe
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
@@ -47,10 +48,12 @@ class GameFragment : Fragment(){
 
         resetButton.setOnClickListener({
             resetGame()
+            context?.let { it1 -> SoundEffectPlayer.playPause(it1) }
         })
 
         endGameButton.setOnClickListener({
             Navigation.findNavController(this.view!!).popBackStack()
+            context?.let { it1 -> SoundEffectPlayer.playPause(it1) }
 
         })
 
@@ -182,10 +185,13 @@ class GameFragment : Fragment(){
 
     }
 
+    @SuppressLint("ResourceAsColor")
     fun setActivePlayer() {
         if (activePlayer == 1) {
             activePlayer = 2
-            currentPlayerTextField.setText(player2.name)
+
+            player1Name.setTextColor(R.color.inactivePlayer)
+            player2Name.setTextColor(R.color.activePlayer)
 
             player1Image.setImageResource(R.drawable.mario_unselected)
             player2Image.setImageResource(R.drawable.luigi_selected)
@@ -196,7 +202,10 @@ class GameFragment : Fragment(){
 
         } else {
             activePlayer = 1
-            currentPlayerTextField.setText(player1.name)
+
+            player1Name.setTextColor(R.color.activePlayer)
+            player2Name.setTextColor(R.color.inactivePlayer)
+
             player1Image.setImageResource(R.drawable.mario_selected)
             player2Image.setImageResource(R.drawable.luigi_unselected)
         }
@@ -211,12 +220,13 @@ class GameFragment : Fragment(){
 
         activePlayer = 1
 
-        currentPlayerTextField.setText(player1.name)
-
         gameButtons.forEach {
             it.isEnabled = true
             it.text = ""
         }
+
+        player1Name.text = player1.name
+        player2Name.text = player2.name
 
         timer.base = SystemClock.elapsedRealtime()
         timer.start()

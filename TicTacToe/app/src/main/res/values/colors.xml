@@ -6,4 +6,7 @@
     <color name="lightGrayBackground">#F2F2F2</color>
     <color name="onePlayerBackground">#000000</color>
     <color name="twoPlayerBackground">#3C3C3C</color>
+    <color name="activePlayer">#000000</color>
+    <color name="inactivePlayer">#757575</color>
+
 </resources>
