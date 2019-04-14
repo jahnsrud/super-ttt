@@ -22,8 +22,10 @@ class GameFragment : Fragment(){
     val player1 = PreferencesHelper.loadPlayer("1")
     val player2 = PreferencesHelper.loadPlayer("2")
     var activePlayer = 1
+
     val PLAYER_1_SYMBOL = "X"
     val PLAYER_2_SYMBOL = "O"
+    val DELAY_IN_MS:Long = 190
 
     var gameButtons = arrayOf<Button>()
 
@@ -126,7 +128,7 @@ class GameFragment : Fragment(){
 
             makeMove(getButtonFromIndex(random), random)
 
-        }, 100)
+        }, DELAY_IN_MS)
 
 
 
@@ -185,6 +187,9 @@ class GameFragment : Fragment(){
             activePlayer = 2
             currentPlayerTextField.setText(player2.name)
 
+            player1Image.setImageResource(R.drawable.mario_unselected)
+            player2Image.setImageResource(R.drawable.luigi_selected)
+
             if (player2.isAI) {
                 aiMakeMove()
             }
@@ -192,6 +197,8 @@ class GameFragment : Fragment(){
         } else {
             activePlayer = 1
             currentPlayerTextField.setText(player1.name)
+            player1Image.setImageResource(R.drawable.mario_selected)
+            player2Image.setImageResource(R.drawable.luigi_unselected)
         }
 
 
