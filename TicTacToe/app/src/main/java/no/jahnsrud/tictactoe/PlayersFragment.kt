@@ -13,7 +13,10 @@ import android.widget.CompoundButton
 
 class PlayersFragment : Fragment() {
 
-    var shouldPlayAgainstAi:Boolean = false
+    var player1 = Player("", false)
+    var player2 = Player("", false)
+
+    val DEFAULT_BOT_NAME = "TTTBot"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +37,10 @@ class PlayersFragment : Fragment() {
 
         })
 
-        aiSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+        aiSwitch.setOnCheckedChangeListener({ buttonView, isChecked ->
 
-            shouldPlayAgainstAi = isChecked
+            player2.isAI = isChecked
+            savePlayers()
             loadPlayers()
 
         })
@@ -54,17 +58,19 @@ class PlayersFragment : Fragment() {
     }
 
     fun loadPlayers() {
-        val player1 = PreferencesHelper.loadPlayer("1")
-        player1TextField.setText(player1)
+        player1 = PreferencesHelper.loadPlayer("1")
+        player1TextField.setText(player1.name)
 
-        if (shouldPlayAgainstAi) {
-            player2TextField.setText("TTTBot")
+        player2 = PreferencesHelper.loadPlayer("2")
+
+        if (player2.isAI) {
+            player2TextField.setText(DEFAULT_BOT_NAME)
         } else {
-            val player2 = PreferencesHelper.loadPlayer("2")
-            player2TextField.setText(player2)
+            player2TextField.setText(player2.name)
         }
 
-        player2TextField.isEnabled = !shouldPlayAgainstAi
+        aiSwitch.isChecked = player2.isAI
+        player2TextField.isEnabled = !player2.isAI
 
     }
 
@@ -73,8 +79,8 @@ class PlayersFragment : Fragment() {
         var player1Name:String = player1TextField.text.toString().trimEnd()
         var player2Name:String = player2TextField.text.toString().trimEnd()
 
-        val player1 = Player(player1Name, false)
-        val player2 = Player(player2Name, false)
+        player1.name = player1Name
+        player2.name = player2Name
 
         PreferencesHelper.savePlayer(player1, "1")
         PreferencesHelper.savePlayer(player2, "2")

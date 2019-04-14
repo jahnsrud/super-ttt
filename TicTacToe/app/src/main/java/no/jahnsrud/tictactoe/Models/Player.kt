@@ -1,6 +1,8 @@
 package no.jahnsrud.tictactoe.Models
 
-class Player {
+import java.io.Serializable
+
+class Player : Serializable {
     var name: String = ""
     var moves: ArrayList<Int> = ArrayList<Int>()
     var isAI: Boolean = false

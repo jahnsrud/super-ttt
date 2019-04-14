@@ -2,6 +2,7 @@ package no.jahnsrud.tictactoe
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.gson.Gson
 import no.jahnsrud.tictactoe.Models.Player
 
 object PreferencesHelper {
@@ -15,14 +16,27 @@ object PreferencesHelper {
     }
 
     fun savePlayer(player: Player, playerId:String) {
+
+        val gson = Gson()
+        val playerString = gson.toJson(player)
+
         val editor = prefs!!.edit()
-        editor.putString("player_"+playerId, player.name)
+        editor.putString("player_"+playerId, playerString)
         editor.apply()
     }
 
-    fun loadPlayer(playerId:String) : String {
-        val name = prefs!!.getString("player_"+playerId, "")
-        return name
+    fun loadPlayer(playerId:String) : Player {
+        val playerString = prefs!!.getString("player_"+playerId, "")
+        val gson = Gson()
+
+        val player = gson.fromJson(playerString, Player::class.java)
+
+        if (player != null) {
+            return player
+        } else {
+            return Player("", false)
+        }
+
     }
 
 

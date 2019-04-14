@@ -12,15 +12,16 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_game.*
+import no.jahnsrud.tictactoe.GameLogic.TicTacToeGame
 import no.jahnsrud.tictactoe.Models.Player
 
 class GameFragment : Fragment(){
 
-    val player1 = Player("Player 1", false)
-    val player2 = Player("Player 2", true)
+    val game = TicTacToeGame()
 
+    val player1 = PreferencesHelper.loadPlayer("1")
+    val player2 = PreferencesHelper.loadPlayer("2")
     var activePlayer = 1
-
     val PLAYER_1_SYMBOL = "X"
     val PLAYER_2_SYMBOL = "O"
 
