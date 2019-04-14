@@ -37,10 +37,10 @@
                     android:id="@+id/player2TextField" android:hint="Player 2" android:textStyle="bold"
                     android:singleLine="true"/>
             <Switch
-                    android:text="Against AI"
+                    android:text="Against CPU"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/aiSwitch" android:textOn="AI Enabled"
-                    android:textOff="AI Disabled"/>
+                    android:layout_height="wrap_content" android:id="@+id/aiSwitch" android:textOn="CPU Enabled"
+                    android:textOff="CPU Disabled"/>
             <Button
                     android:text="Start"
                     android:layout_width="match_parent"

@@ -9,12 +9,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:background="@color/lightGrayBackground">
         <TextView
-                android:text="super tic tac"
+                android:text="super ttt"
                 android:layout_width="match_parent"
-                android:layout_height="106dp" android:id="@+id/textView" android:textStyle="bold"
-                android:textSize="26sp" android:textAlignment="center" android:textColor="@android:color/black"
-                android:gravity="center" android:fontFamily="@font/super_mario_font" android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
+                android:layout_height="136dp" android:id="@+id/textView" android:textStyle="bold"
+                android:textSize="32sp" android:textAlignment="center" android:textColor="@android:color/black"
+                android:gravity="center" android:fontFamily="@font/super_mario_font" android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"/>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -22,13 +22,13 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:background="@color/onePlayerBackground"
+                    android:layout_height="match_parent" android:background="@drawable/rounded_background"
                     android:layout_marginBottom="10dp" android:gravity="center" android:id="@+id/player1Box"
                     android:paddingBottom="16dp" android:paddingTop="16dp">
                 <ImageView
                         android:src="@drawable/player_mario"
-                        android:layout_width="56dp"
-                        android:layout_height="75dp" android:id="@+id/imageView"
+                        android:layout_width="42dp"
+                        android:layout_height="56dp" android:id="@+id/imageView"
                         android:scaleType="centerInside"/>
                 <Space
                         android:layout_width="match_parent"
@@ -54,8 +54,8 @@
                     android:paddingBottom="16dp" android:paddingTop="16dp">
                 <ImageView
                         android:src="@drawable/player_luigi"
-                        android:layout_width="56dp"
-                        android:layout_height="75dp" android:id="@+id/imageView"
+                        android:layout_width="42dp"
+                        android:layout_height="56dp" android:id="@+id/imageView"
                         android:scaleType="centerInside"/>
                 <Space
                         android:layout_width="match_parent"
@@ -65,19 +65,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/textView3"
                         android:textAlignment="center" android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@android:color/white"/>
                 <TextView
-                        android:text="Battle"
+                        android:text="BATTLE"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/textView4" android:textSize="32sp"
                         android:textAlignment="center" android:textStyle="bold"
-                        android:textColor="@color/colorPrimary"/>
+                        android:textColor="@android:color/white"/>
             </LinearLayout>
-            <Button
-                    android:text="Leaderboard"
+            <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
-                    style="@style/Widget.AppCompat.Button"/>
+                    android:layout_height="188dp" android:layout_weight="100" android:gravity="bottom">
+                <Button
+                        android:text="Leaderboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
+                        style="@style/Widget.AppCompat.Button"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

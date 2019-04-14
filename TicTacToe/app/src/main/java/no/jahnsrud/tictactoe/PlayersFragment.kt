@@ -32,7 +32,6 @@ class PlayersFragment : Fragment() {
             Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)
 
 
-
         })
 
         aiSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
