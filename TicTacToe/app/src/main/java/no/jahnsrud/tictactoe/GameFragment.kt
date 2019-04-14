@@ -56,45 +56,6 @@ class GameFragment : Fragment(){
 
     }
 
-    fun getIndexFromButton(button: Button) : Int {
-        var index = 0
-
-        when (button.id) {
-            R.id.button1 -> index=1
-            R.id.button2 -> index=2
-            R.id.button3 -> index=3
-            R.id.button4 -> index=4
-            R.id.button5 -> index=5
-            R.id.button6 -> index=6
-            R.id.button7 -> index=7
-            R.id.button8 -> index=8
-            R.id.button9 -> index=9
-        }
-
-        return index
-
-    }
-
-    fun getButtonFromIndex(index: Int) : Button {
-
-        var button:Button = Button(activity)
-
-        when (index) {
-            1 -> button=button1
-            2 -> button=button2
-            3 -> button=button3
-            4 -> button=button4
-            5 -> button=button5
-            6 -> button=button6
-            7 -> button=button7
-            8 -> button=button8
-            9 -> button=button9
-
-        }
-
-        return button;
-    }
-
     fun didInteractWithGameBoard(selectedButton: Button) {
 
         val index = getIndexFromButton(selectedButton)
@@ -183,7 +144,7 @@ class GameFragment : Fragment(){
                 player1.moves.containsAll(it.asList())
 
             }) {
-            Toast.makeText(activity, "Player 1 won 🥳", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, player1.name + " won 🥳", Toast.LENGTH_SHORT).show()
             context?.let { SoundEffectPlayer.playWin(it) }
 
             endGame()
@@ -193,7 +154,7 @@ class GameFragment : Fragment(){
                 player2.moves.containsAll(it.asList())
 
             }) {
-            Toast.makeText(activity, "Player 2 won 🥳", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, player2.name + " won 🥳", Toast.LENGTH_SHORT).show()
             context?.let { SoundEffectPlayer.playLost(it) }
 
             endGame()
@@ -218,24 +179,6 @@ class GameFragment : Fragment(){
         timer.stop()
 
     }
-
-    /*
-    Mulige vinnerkombinasjoner
-    */
-
-    val winningMoves: Array<IntArray> = arrayOf(
-        intArrayOf(1, 2, 3),
-        intArrayOf(1, 4, 7),
-        intArrayOf(1, 5, 9),
-        intArrayOf(2, 5, 8),
-        intArrayOf(3, 6, 9),
-        intArrayOf(4, 5, 6),
-        intArrayOf(7, 5, 3),
-        intArrayOf(7, 8, 9)
-
-    )
-
-
 
     fun setActivePlayer() {
         if (activePlayer == 1) {
@@ -273,5 +216,67 @@ class GameFragment : Fragment(){
 
     }
 
+    /**
+     * Mulige vinnerkombinasjoner
+     */
+
+    val winningMoves: Array<IntArray> = arrayOf(
+        intArrayOf(1, 2, 3),
+        intArrayOf(1, 4, 7),
+        intArrayOf(1, 5, 9),
+        intArrayOf(2, 5, 8),
+        intArrayOf(3, 6, 9),
+        intArrayOf(4, 5, 6),
+        intArrayOf(7, 5, 3),
+        intArrayOf(7, 8, 9)
+
+    )
+
+    /**
+     *
+     * Helper methods
+     * First: getting the user selected button and convert it to a index
+     * Second: converts an index to a button (useful when the bot makes a move)
+     *
+     */
+
+    fun getIndexFromButton(button: Button) : Int {
+        var index = 0
+
+        when (button.id) {
+            R.id.button1 -> index=1
+            R.id.button2 -> index=2
+            R.id.button3 -> index=3
+            R.id.button4 -> index=4
+            R.id.button5 -> index=5
+            R.id.button6 -> index=6
+            R.id.button7 -> index=7
+            R.id.button8 -> index=8
+            R.id.button9 -> index=9
+        }
+
+        return index
+
+    }
+
+    fun getButtonFromIndex(index: Int) : Button {
+
+        var button:Button = Button(activity)
+
+        when (index) {
+            1 -> button=button1
+            2 -> button=button2
+            3 -> button=button3
+            4 -> button=button4
+            5 -> button=button5
+            6 -> button=button6
+            7 -> button=button7
+            8 -> button=button8
+            9 -> button=button9
+
+        }
+
+        return button;
+    }
 
 }

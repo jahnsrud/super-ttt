@@ -1,5 +1,7 @@
 package no.jahnsrud.tictactoe
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +11,10 @@ import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_players.*
 import no.jahnsrud.tictactoe.Models.Player
 import android.widget.CompoundButton
+import android.widget.Toast
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.support.v4.content.ContextCompat.getSystemService
+import android.view.inputmethod.InputMethodManager
 
 
 class PlayersFragment : Fragment() {
@@ -30,16 +36,17 @@ class PlayersFragment : Fragment() {
         super.onStart()
 
         playButton.setOnClickListener({
-            savePlayers()
-            this.context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
-            Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)
-
-
+            startGame()
         })
 
         aiSwitch.setOnCheckedChangeListener({ buttonView, isChecked ->
 
             player2.isAI = isChecked
+
+            if (!player2.isAI) {
+                player2TextField.text.clear()
+            }
+
             savePlayers()
             loadPlayers()
 
@@ -49,6 +56,32 @@ class PlayersFragment : Fragment() {
 
         loadPlayers()
 
+    }
+
+    fun startGame() {
+        savePlayers()
+
+        if (player1.name.length < 1) {
+            player1TextField.setFocusableInTouchMode(true);
+            player1TextField.requestFocus()
+            // openKeyboard()
+
+            return
+        } else if (player2.name.length < 1) {
+            player2TextField.setFocusableInTouchMode(true);
+            player2TextField.requestFocus()
+            // openKeyboard()
+            return
+        }
+
+        this.context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
+        Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)
+    }
+
+    @SuppressLint("ServiceCast")
+    fun openKeyboard() {
+        val inputMethodManager = context!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
     }
 
     override fun onResume() {
