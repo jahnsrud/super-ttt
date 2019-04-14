@@ -90,8 +90,6 @@ class GameFragment : Fragment(){
             return
         }
 
-        Log.d("Button.tag", ""+ button.tag)
-
         var symbol = ""
 
         if (activePlayer == 1) {
@@ -149,30 +147,43 @@ class GameFragment : Fragment(){
                 player1.moves.containsAll(it.asList())
 
             }) {
-            Toast.makeText(activity, player1.name + " won 🥳", Toast.LENGTH_SHORT).show()
-            context?.let { SoundEffectPlayer.playWin(it) }
-
-            endGame()
-
+            displayWinModePlayer1()
 
         } else if (winningMoves.any {
                 player2.moves.containsAll(it.asList())
 
             }) {
-            Toast.makeText(activity, player2.name + " won 🥳", Toast.LENGTH_SHORT).show()
-            context?.let { SoundEffectPlayer.playLost(it) }
-
-            endGame()
+            displayWinModePlayer2()
 
         } else if (player1.moves.size + player2.moves.size == 9) {
-            Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()
-            context?.let { SoundEffectPlayer.playLost(it) }
-
-            endGame()
+           displayDrawMode()
         } else {
             setActivePlayer()
         }
 
+    }
+
+    fun displayWinModePlayer1() {
+        Toast.makeText(activity, player1.name + " won 🥳", Toast.LENGTH_SHORT).show()
+        context?.let { SoundEffectPlayer.playWin(it) }
+
+        endGame()
+    }
+
+    fun displayWinModePlayer2() {
+        Toast.makeText(activity, player2.name + " won 🥳", Toast.LENGTH_SHORT).show()
+        context?.let { SoundEffectPlayer.playLost(it) }
+
+        endGame()
+    }
+
+    fun displayDrawMode() {
+        Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()
+        context?.let { SoundEffectPlayer.playLost(it) }
+        player1Image.setImageResource(R.drawable.mario_unselected)
+        player2Image.setImageResource(R.drawable.luigi_unselected)
+
+        endGame()
     }
 
     fun endGame() {
@@ -185,31 +196,37 @@ class GameFragment : Fragment(){
 
     }
 
-    @SuppressLint("ResourceAsColor")
     fun setActivePlayer() {
+
         if (activePlayer == 1) {
             activePlayer = 2
-
-            player1Name.setTextColor(R.color.inactivePlayer)
-            player2Name.setTextColor(R.color.activePlayer)
-
-            player1Image.setImageResource(R.drawable.mario_unselected)
-            player2Image.setImageResource(R.drawable.luigi_selected)
-
             if (player2.isAI) {
                 aiMakeMove()
             }
 
         } else {
             activePlayer = 1
+        }
 
+        displayActivePlayer()
+    }
+
+    @SuppressLint("ResourceAsColor")
+    fun displayActivePlayer() {
+        if (activePlayer == 1) {
             player1Name.setTextColor(R.color.activePlayer)
             player2Name.setTextColor(R.color.inactivePlayer)
 
             player1Image.setImageResource(R.drawable.mario_selected)
             player2Image.setImageResource(R.drawable.luigi_unselected)
-        }
 
+        } else {
+            player1Name.setTextColor(R.color.inactivePlayer)
+            player2Name.setTextColor(R.color.activePlayer)
+
+            player1Image.setImageResource(R.drawable.mario_unselected)
+            player2Image.setImageResource(R.drawable.luigi_selected)
+        }
 
     }
 
@@ -219,6 +236,7 @@ class GameFragment : Fragment(){
         player2.clearMoves()
 
         activePlayer = 1
+        displayActivePlayer()
 
         gameButtons.forEach {
             it.isEnabled = true
