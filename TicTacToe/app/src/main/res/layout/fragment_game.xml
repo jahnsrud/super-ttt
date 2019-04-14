@@ -15,8 +15,8 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="83dp" android:gravity="center"
-                    android:layout_gravity="center|center_vertical">
+                    android:layout_height="83dp"
+                    android:layout_gravity="center|center_vertical" android:gravity="center">
                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
-                android:background="@android:color/background_light" android:padding="1dp">
+                android:background="@android:color/background_light" android:padding="10dp">
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
@@ -149,17 +149,15 @@
                 android:gravity="bottom|center_horizontal" android:layout_marginBottom="16dp">
             <Chronometer
                     android:id="@+id/timer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center" android:textStyle="bold" android:layout_marginBottom="16dp"/>
+                    android:layout_width="100dp"
+                    android:layout_height="36dp"
+                    android:textAlignment="center" android:textStyle="bold" android:layout_marginBottom="16dp"
+                    android:textSize="16sp" android:background="@drawable/rounded_background" android:gravity="center"
+                    android:textColor="@android:color/white"/>
             <Button
-                    android:text="Pause"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/resetButton"/>
-            <Button
-                    android:text="End Game"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/endGameButton"/>
+                    android:text="❙❙ Pause"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content" android:id="@+id/pauseButton"/>
 
         </LinearLayout>
     </LinearLayout>

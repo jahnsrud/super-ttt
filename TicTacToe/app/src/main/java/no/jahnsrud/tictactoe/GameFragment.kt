@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_game.*
 import no.jahnsrud.tictactoe.GameLogic.TicTacToeGame
-import no.jahnsrud.tictactoe.Models.Player
 
 class GameFragment : Fragment(){
 
@@ -46,15 +44,9 @@ class GameFragment : Fragment(){
             it.setOnClickListener{ didInteractWithGameBoard(it as Button) }
         }
 
-        resetButton.setOnClickListener({
+        pauseButton.setOnClickListener({
             resetGame()
             context?.let { it1 -> SoundEffectPlayer.playPause(it1) }
-        })
-
-        endGameButton.setOnClickListener({
-            Navigation.findNavController(this.view!!).popBackStack()
-            context?.let { it1 -> SoundEffectPlayer.playPause(it1) }
-
         })
 
         resetGame()
