@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.crowdfire.cfalertdialog.CFAlertDialog
@@ -23,11 +23,11 @@ class GameFragment : Fragment(){
     val player2 = PreferencesHelper.loadPlayer("2")
     var activePlayer = 1
 
-    val PLAYER_1_SYMBOL = "X"
-    val PLAYER_2_SYMBOL = "O"
-    val DELAY_IN_MS:Long = 190
+    val PLAYER_1_SYMBOL = R.drawable.mario_hat
+    val PLAYER_2_SYMBOL = R.drawable.luigi_hat
+    val BOT_DELAY_IN_MS:Long = 190
 
-    var gameButtons = arrayOf<Button>()
+    var gameButtons = arrayOf<ImageButton>()
 
 
     override fun onCreateView(
@@ -42,7 +42,7 @@ class GameFragment : Fragment(){
 
         gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
-            it.setOnClickListener{ userDidInteractWithGameBoard(it as Button) }
+            it.setOnClickListener{ userDidInteractWithGameBoard(it as ImageButton) }
         }
 
         pauseButton.setOnClickListener({
@@ -50,6 +50,7 @@ class GameFragment : Fragment(){
         })
 
         resetGame()
+
 
     }
 
@@ -74,7 +75,7 @@ class GameFragment : Fragment(){
         builder.show()
     }
 
-    fun userDidInteractWithGameBoard(selectedButton: Button) {
+    fun userDidInteractWithGameBoard(selectedButton: ImageButton) {
 
         val index = getIndexFromButton(selectedButton)
 
@@ -98,23 +99,20 @@ class GameFragment : Fragment(){
 
     }
 
-    private fun makeMove(button: Button, index: Int) {
+    private fun makeMove(button: ImageButton, index: Int) {
 
         if (!canMakeMove(index)) {
             return
         }
 
-        var symbol = ""
-
         if (activePlayer == 1) {
             player1.moves.add(index)
-            symbol = PLAYER_1_SYMBOL
+            button.setImageResource(PLAYER_1_SYMBOL)
         } else {
             player2.moves.add(index)
-            symbol = PLAYER_2_SYMBOL
+            button.setImageResource(PLAYER_2_SYMBOL)
         }
 
-        button.setText(symbol)
         button.isEnabled = false
 
         checkWinner()
@@ -143,7 +141,7 @@ class GameFragment : Fragment(){
 
             makeMove(getButtonFromIndex(random), random)
 
-        }, DELAY_IN_MS)
+        }, BOT_DELAY_IN_MS)
 
 
 
@@ -259,7 +257,7 @@ class GameFragment : Fragment(){
 
         gameButtons.forEach {
             it.isEnabled = true
-            it.text = ""
+            it.setImageResource(android.R.color.transparent)
         }
 
         player1Name.text = player1.name
@@ -294,7 +292,7 @@ class GameFragment : Fragment(){
      *
      */
 
-    fun getIndexFromButton(button: Button) : Int {
+    fun getIndexFromButton(button: ImageButton) : Int {
         var index = 0
 
         when (button.id) {
@@ -313,9 +311,9 @@ class GameFragment : Fragment(){
 
     }
 
-    fun getButtonFromIndex(index: Int) : Button {
+    fun getButtonFromIndex(index: Int) : ImageButton {
 
-        var button:Button = Button(activity)
+        var button:ImageButton = ImageButton(activity)
 
         when (index) {
             1 -> button=button1

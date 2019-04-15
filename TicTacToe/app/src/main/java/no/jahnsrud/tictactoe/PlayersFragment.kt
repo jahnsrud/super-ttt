@@ -10,10 +10,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_players.*
 import no.jahnsrud.tictactoe.Models.Player
-import android.widget.CompoundButton
-import android.widget.Toast
-import android.content.Context.INPUT_METHOD_SERVICE
-import android.support.v4.content.ContextCompat.getSystemService
 import android.view.inputmethod.InputMethodManager
 
 

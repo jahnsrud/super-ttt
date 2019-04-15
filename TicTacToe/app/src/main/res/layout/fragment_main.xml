@@ -38,13 +38,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/textView3"
                         android:textAlignment="center" android:textStyle="bold"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 <TextView
                         android:text="CPU"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/textView4" android:textSize="32sp"
                         android:textAlignment="center" android:textStyle="bold"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
@@ -65,13 +65,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/textView3"
                         android:textAlignment="center" android:textStyle="bold"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/colorPrimaryDark"/>
                 <TextView
                         android:text="BATTLE"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/textView4" android:textSize="32sp"
                         android:textAlignment="center" android:textStyle="bold"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -79,15 +79,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent" android:gravity="bottom|center|center_vertical">
             <Button
-                    android:text="Leaderboard"
+                    android:text="Leaderboards"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
                     style="@style/Widget.AppCompat.Button.Borderless" android:textAlignment="center"
-                    android:gravity="center" android:foregroundGravity="center_vertical|center"/>
+                    android:gravity="center" android:foregroundGravity="center_vertical|center"
+                    android:textSize="13sp"/>
             <ImageView
                     android:src="@drawable/mario_pipe"
                     android:layout_width="69dp"
-                    android:layout_height="88dp" android:id="@+id/leaderboardPipe" android:layout_gravity="center"/>
+                    android:layout_height="87dp" android:id="@+id/leaderboardPipe" android:layout_gravity="center"/>
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

@@ -26,17 +26,29 @@ object PreferencesHelper {
     }
 
     fun loadPlayer(playerId:String) : Player {
-        val playerString = prefs!!.getString("player_"+playerId, "")
-        val gson = Gson()
 
-        val player = gson.fromJson(playerString, Player::class.java)
+        val playerPreferencesId = "player_"+playerId
 
-        if (player != null) {
-            return player
-        } else {
-            return Player("", false)
+        if (prefs!!.contains(playerPreferencesId)) {
+
+            val playerString = prefs!!.getString(playerPreferencesId, "")
+
+            if (playerString.length > 0) {
+                val gson = Gson()
+                val player = gson.fromJson(playerString, Player::class.java)
+
+
+                if (player != null) {
+                    return player
+
+                } else {
+                    return Player("", false)
+
+                }
+            }
         }
 
+        return Player("", false)
     }
 
     fun addVictoryToHighscore(player: Player) {
