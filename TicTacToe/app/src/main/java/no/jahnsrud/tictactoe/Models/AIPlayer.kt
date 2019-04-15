@@ -1,5 +1,5 @@
 package no.jahnsrud.tictactoe.Models
 
-/* class AIPlayer : Player(String string) {
+class AIPlayer : Player("TTTBot", true) {
 
-} */
+}

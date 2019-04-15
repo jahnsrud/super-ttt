@@ -39,5 +39,28 @@ object PreferencesHelper {
 
     }
 
+    fun addVictoryToHighscore(player: Player) {
+
+        val playerName = player.name.toUpperCase()
+        var score = 1
+
+        val highscores = HashMap<String, Int>()
+
+        if (highscores.contains(playerName)) {
+            score = highscores.get(playerName)!! + 1
+        }
+
+
+
+        // logic...
+
+    }
+
+    fun getHighscores() : HashMap<String, Int> {
+
+        // TODO!
+
+        return HashMap<String, Int>()
+    }
 
 }
