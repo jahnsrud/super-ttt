@@ -1,6 +1,5 @@
 package no.jahnsrud.tictactoe
 
-import android.R
 import android.content.Context
 import android.media.MediaPlayer
 import android.net.Uri

@@ -3,7 +3,7 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="lightGrayBackground">#F2F2F2</color>
+    <color name="lightGrayBackground">#F6F6F6</color>
     <color name="onePlayerBackground">#000000</color>
     <color name="twoPlayerBackground">#3C3C3C</color>
     <color name="activePlayer">#000000</color>
