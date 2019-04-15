@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.fragment_leaderboard.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,6 +27,24 @@ class LeaderboardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_leaderboard, container, false)
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        backButtonPipe.setOnClickListener({
+            goBack()
+        })
+
+        backButtonText.setOnClickListener({
+            goBack()
+        })
+    }
+
+    fun goBack() {
+        context?.let { SoundEffectPlayer.playWarp(it) }
+        Navigation.findNavController(this.view!!).popBackStack()
+
     }
 
 
