@@ -37,9 +37,18 @@ class MainFragment : Fragment() {
         })
 
         leaderboardButton.setOnClickListener({
-            Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_leaderboardFragment)
-
+            openLeaderboards()
         })
+
+        leaderboardPipe.setOnClickListener({
+            openLeaderboards()
+        })
+    }
+
+    fun openLeaderboards() {
+        Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_leaderboardFragment)
+        context?.let { SoundEffectPlayer.playWarp(it) }
+
     }
 
     fun openGame() {

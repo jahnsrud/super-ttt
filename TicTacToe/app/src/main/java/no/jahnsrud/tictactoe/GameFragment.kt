@@ -42,7 +42,7 @@ class GameFragment : Fragment(){
 
         gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
         gameButtons.forEach {
-            it.setOnClickListener{ didInteractWithGameBoard(it as Button) }
+            it.setOnClickListener{ userDidInteractWithGameBoard(it as Button) }
         }
 
         pauseButton.setOnClickListener({
@@ -60,9 +60,10 @@ class GameFragment : Fragment(){
         val builder = CFAlertDialog.Builder(context)
             .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
             .setTitle("Pause")
-            .setMessage("What now?")
-            .addButton("Restart", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+            // .setMessage("What now?")
+            .addButton("Restart", -1, -1, CFAlertDialog.CFAlertActionStyle.NEGATIVE, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 resetGame()
+                context?.let { SoundEffectPlayer.playWarp(it) }
                 dialog.dismiss() })
             .addButton("End Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 endGame()
@@ -73,16 +74,17 @@ class GameFragment : Fragment(){
         builder.show()
     }
 
-    fun didInteractWithGameBoard(selectedButton: Button) {
+    fun userDidInteractWithGameBoard(selectedButton: Button) {
 
         val index = getIndexFromButton(selectedButton)
 
         if (canMakeMove(index)) {
             makeMove(selectedButton, index)
-
         } else {
             Toast.makeText(activity, "Move already made", Toast.LENGTH_SHORT).show()
         }
+
+        // context?.let { SoundEffectPlayer.playNextSound(it) }
 
     }
 
