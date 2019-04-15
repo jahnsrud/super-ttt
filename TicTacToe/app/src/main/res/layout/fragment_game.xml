@@ -155,7 +155,7 @@
                     android:textSize="16sp" android:background="@drawable/rounded_background" android:gravity="center"
                     android:textColor="@color/colorPrimary"/>
             <Button
-                    android:text="❙❙ Pause"
+                    android:text="❙❙"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content" android:id="@+id/pauseButton"/>
 

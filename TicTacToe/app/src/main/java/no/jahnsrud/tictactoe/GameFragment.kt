@@ -235,14 +235,14 @@ class GameFragment : Fragment(){
             player2Name.setTextColor(R.color.inactivePlayer)
 
             player1Image.setImageResource(R.drawable.mario_selected)
-            player2Image.setImageResource(R.drawable.luigi_unselected)
+            player2Image.setImageResource(R.drawable.luigi_unselected_flipped)
 
         } else {
             player1Name.setTextColor(R.color.inactivePlayer)
             player2Name.setTextColor(R.color.activePlayer)
 
             player1Image.setImageResource(R.drawable.mario_unselected)
-            player2Image.setImageResource(R.drawable.luigi_selected)
+            player2Image.setImageResource(R.drawable.luigi_selected_flipped)
         }
 
     }
