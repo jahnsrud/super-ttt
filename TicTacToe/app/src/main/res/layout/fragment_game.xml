@@ -16,7 +16,8 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="83dp"
-                    android:layout_gravity="center|center_vertical" android:gravity="center">
+                    android:layout_gravity="center|center_vertical" android:gravity="center"
+                    android:layout_marginTop="24dp">
                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="wrap_content"
@@ -53,92 +54,91 @@
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
-                android:background="@android:color/background_light" android:padding="10dp">
+                android:padding="2dp" android:layout_marginTop="10dp">
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_gravity="center"
-                    android:background="@color/lightGrayBackground">
+                    android:layout_margin="10dp">
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:gravity="center"
-                        android:background="@color/lightGrayBackground">
+                        android:background="@color/cfdialog_neutral_button_color">
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button1" android:tag="1"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginRight="1dp"
+                            android:layout_marginBottom="1dp" android:background="@color/lightGrayBackground"/>
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button2" android:tag="2"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginBottom="1dp"
+                            android:layout_marginRight="1dp" android:background="@color/lightGrayBackground"/>
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button3" android:tag="3"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginBottom="1dp"
+                            android:background="@color/lightGrayBackground"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:gravity="center"
-                        android:background="@color/lightGrayBackground">
+                        android:background="@color/cfdialog_neutral_button_pressed_color">
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button4" android:tag="4"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginBottom="1dp"
+                            android:layout_marginRight="1dp" android:background="@color/lightGrayBackground"/>
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button5" android:tag="5"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginRight="1dp"
+                            android:layout_marginBottom="1dp" android:background="@color/lightGrayBackground"/>
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button6" android:tag="6"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginBottom="1dp"
+                            android:background="@color/lightGrayBackground"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:gravity="center"
-                        android:background="@color/lightGrayBackground">
+                        android:background="@color/cfdialog_neutral_button_pressed_color">
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button7" android:tag="7"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginRight="1dp"
+                            android:background="@color/lightGrayBackground"/>
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button8" android:tag="8"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:layout_marginRight="1dp"
+                            android:background="@color/lightGrayBackground"/>
                     <ImageButton
                             android:layout_width="90dp"
                             android:layout_height="90dp" android:id="@+id/button9" android:tag="9"
                             style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"
                             android:textStyle="bold" android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="1dp" android:background="@android:color/background_light"
-                            android:padding="1dp"/>
+                            android:scaleType="centerInside" android:background="@color/lightGrayBackground"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

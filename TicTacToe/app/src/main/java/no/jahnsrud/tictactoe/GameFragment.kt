@@ -193,7 +193,7 @@ class GameFragment : Fragment(){
         Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()
         context?.let { SoundEffectPlayer.playLost(it) }
         player1Image.setImageResource(R.drawable.mario_unselected)
-        player2Image.setImageResource(R.drawable.luigi_unselected)
+        player2Image.setImageResource(R.drawable.luigi_unselected_flipped)
 
         endGame()
     }
