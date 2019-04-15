@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.Navigation
+import com.crowdfire.cfalertdialog.CFAlertDialog
 import kotlinx.android.synthetic.main.fragment_game.*
 import no.jahnsrud.tictactoe.GameLogic.TicTacToeGame
 
@@ -45,12 +46,31 @@ class GameFragment : Fragment(){
         }
 
         pauseButton.setOnClickListener({
-            resetGame()
-            context?.let { it1 -> SoundEffectPlayer.playPause(it1) }
+            openPauseMenu()
         })
 
         resetGame()
 
+    }
+
+    fun openPauseMenu() {
+
+        context?.let { it1 -> SoundEffectPlayer.playPause(it1) }
+
+        val builder = CFAlertDialog.Builder(context)
+            .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
+            .setTitle("Pause")
+            .setMessage("What now?")
+            .addButton("Restart", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+                resetGame()
+                dialog.dismiss() })
+            .addButton("End Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+                endGame()
+                exitGame()
+                dialog.dismiss() })
+            .addButton("Continue Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+                dialog.dismiss() })
+        builder.show()
     }
 
     fun didInteractWithGameBoard(selectedButton: Button) {
@@ -185,6 +205,11 @@ class GameFragment : Fragment(){
         }
 
         timer.stop()
+
+    }
+
+    fun exitGame() {
+        Navigation.findNavController(this.view!!).popBackStack()
 
     }
 
