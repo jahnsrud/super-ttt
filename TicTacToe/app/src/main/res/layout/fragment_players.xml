@@ -18,11 +18,11 @@
                 android:layout_marginBottom="100dp" android:padding="24dp"
                 android:background="@drawable/rounded_background">
             <TextView
-                    android:text="PLAYERS"
+                    android:text="players"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/textView2" android:textSize="30sp"
                     android:textColor="@color/colorPrimaryDark" android:textStyle="bold"
-                    android:layout_marginBottom="16dp"/>
+                    android:layout_marginBottom="16dp" android:fontFamily="@font/super_mario_font"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -38,10 +38,10 @@
                     android:id="@+id/player2TextField" android:hint="Player 2" android:textStyle="bold"
                     android:singleLine="true"/>
             <Switch
-                    android:text="Against CPU"
+                    android:text="Play against CPU"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/aiSwitch" android:textOn="CPU Enabled"
-                    android:textOff="CPU Disabled"/>
+                    android:layout_height="45dp" android:id="@+id/aiSwitch" android:textOn="CPU Enabled"
+                    android:textOff="CPU Disabled" android:textStyle="bold"/>
             <Button
                     android:text="Start"
                     android:layout_width="match_parent"

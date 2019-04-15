@@ -39,10 +39,7 @@ class PlayersFragment : Fragment() {
 
             player2.isAI = isChecked
 
-            if (!player2.isAI) {
-                player2TextField.text.clear()
-            }
-
+            updateUI()
             savePlayers()
             loadPlayers()
 
@@ -51,7 +48,18 @@ class PlayersFragment : Fragment() {
         PreferencesHelper.init(this.context!!)
 
         loadPlayers()
+        updateUI()
 
+    }
+
+    fun updateUI() {
+        if (!player2.isAI) {
+            // player2TextField.text.clear()
+            player2TextField.visibility = View.VISIBLE
+
+        } else {
+            player2TextField.visibility = View.GONE
+        }
     }
 
     fun startGame() {
