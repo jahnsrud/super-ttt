@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import com.google.gson.Gson
 import no.jahnsrud.tictactoe.Models.Player
 
-object PreferencesHelper {
+object GameSettings {
 
     val PREFS_FILENAME = "no.jahnsrud.tictactoe.prefs"
     var prefs: SharedPreferences? = null
@@ -22,7 +22,6 @@ object PreferencesHelper {
     }
 
     fun checkIsAi() : Boolean {
-
         return prefs!!.getBoolean("isAi", false)
     }
 

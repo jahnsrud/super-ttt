@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content" android:id="@+id/leaderboardButton"
                     style="@style/Widget.AppCompat.Button.Borderless" android:textAlignment="center"
                     android:gravity="center" android:foregroundGravity="center_vertical|center"
-                    android:textSize="13sp" android:text="@string/leaderboards"/>
+                    android:textSize="11sp" android:text="@string/leaderboards" android:letterSpacing="0.1"/>
             <ImageView
                     android:src="@drawable/mario_pipe"
                     android:layout_width="70dp"

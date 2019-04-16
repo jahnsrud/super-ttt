@@ -25,8 +25,8 @@ class GameFragment : Fragment(){
 
     // val game = TicTacToeGame()
 
-    val player1 = PreferencesHelper.loadPlayer("1")
-    val player2 = PreferencesHelper.loadPlayer("2")
+    val player1 = GameSettings.loadPlayer("1")
+    val player2 = GameSettings.loadPlayer("2")
     var activePlayer = 1
 
     val PLAYER_1_SYMBOL = R.drawable.mario_hat
@@ -47,6 +47,16 @@ class GameFragment : Fragment(){
         super.onStart()
 
         gameButtons = arrayOf(button1, button2, button3, button4, button5, button6, button7, button8, button9)
+
+        setOnClickListeners()
+
+        resetGame()
+
+
+    }
+
+    fun setOnClickListeners() {
+
         gameButtons.forEach {
             it.setOnClickListener{ userDidInteractWithGameBoard(it as ImageButton) }
         }
@@ -55,13 +65,13 @@ class GameFragment : Fragment(){
             openPauseMenu()
         })
 
-        restartButton.setOnClickListener({
+        gameOverView.setOnClickListener({
             resetGame()
         })
 
-        resetGame()
-
-
+        restartButton.setOnClickListener({
+            resetGame()
+        })
     }
 
     fun openPauseMenu() {
@@ -194,6 +204,9 @@ class GameFragment : Fragment(){
         } else {
             context?.let { SoundEffectPlayer.playWin(it) }
         }
+
+        // Add to leaderboards records
+        GameSettings.addVictoryToHighscore(player)
 
         endGame()
     }

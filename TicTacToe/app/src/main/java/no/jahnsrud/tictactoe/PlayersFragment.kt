@@ -45,7 +45,7 @@ class PlayersFragment : Fragment() {
         aiSwitch.setOnCheckedChangeListener({ buttonView, isChecked ->
 
             player2.isAI = isChecked
-            PreferencesHelper.setPlayMode(isChecked)
+            GameSettings.setPlayMode(isChecked)
 
             updateUI()
             savePlayers()
@@ -55,12 +55,12 @@ class PlayersFragment : Fragment() {
     }
 
     fun loadPlayers() {
-        player1 = PreferencesHelper.loadPlayer("1")
-        player2 = PreferencesHelper.loadPlayer("2")
+        player1 = GameSettings.loadPlayer("1")
+        player2 = GameSettings.loadPlayer("2")
 
         player1TextField.setText(player1.name)
 
-        player2.isAI = PreferencesHelper.checkIsAi()
+        player2.isAI = GameSettings.checkIsAi()
 
         updateUI()
 
@@ -124,8 +124,8 @@ class PlayersFragment : Fragment() {
         player1.name = player1Name
         player2.name = player2Name
 
-        PreferencesHelper.savePlayer(player1, "1")
-        PreferencesHelper.savePlayer(player2, "2")
+        GameSettings.savePlayer(player1, "1")
+        GameSettings.savePlayer(player2, "2")
 
 
     }

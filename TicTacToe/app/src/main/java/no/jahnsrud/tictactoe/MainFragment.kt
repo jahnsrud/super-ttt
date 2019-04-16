@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        PreferencesHelper.init(this.context!!)
+        GameSettings.init(this.context!!)
 
         player1Box.setOnClickListener({
             openGame(true)
@@ -53,7 +53,7 @@ class MainFragment : Fragment() {
 
     fun openGame(playAgainstAi: Boolean) {
 
-        PreferencesHelper.setPlayMode(playAgainstAi)
+        GameSettings.setPlayMode(playAgainstAi)
 
         context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
         Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_startFragment)
