@@ -146,7 +146,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="bottom|center_horizontal" android:layout_marginBottom="16dp">
+                android:gravity="bottom|center_horizontal" android:layout_marginBottom="32dp">
             <Chronometer
                     android:id="@+id/timer"
                     android:layout_width="100dp"
@@ -157,7 +157,8 @@
             <Button
                     android:text="❙❙"
                     android:layout_width="100dp"
-                    android:layout_height="wrap_content" android:id="@+id/pauseButton"/>
+                    android:layout_height="wrap_content" android:id="@+id/pauseButton"
+                    style="@style/Widget.AppCompat.Button.Borderless" android:textSize="32sp"/>
 
         </LinearLayout>
     </LinearLayout>

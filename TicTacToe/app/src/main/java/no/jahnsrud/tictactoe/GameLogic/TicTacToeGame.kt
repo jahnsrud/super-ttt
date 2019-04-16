@@ -3,6 +3,22 @@ package no.jahnsrud.tictactoe.GameLogic
 import no.jahnsrud.tictactoe.Models.Player
 
 class TicTacToeGame {
-    val player1 = Player("Player 1", false)
-    val player2 = Player("Player 2", true)
+    var player1 = Player()
+    var player2 = Player()
+
+    constructor(player1: Player, player2: Player) {
+        this.player1 = player1
+        this.player2 = player2
+    }
+
+    fun canMakeMove(index: Int) : Boolean {
+
+        if (player1.moves.contains(index) || player2.moves.contains(index)) {
+            return false
+        }
+
+        return true
+
+    }
+
 }

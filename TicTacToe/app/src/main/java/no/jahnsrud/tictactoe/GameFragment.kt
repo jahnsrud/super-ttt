@@ -18,7 +18,7 @@ import no.jahnsrud.tictactoe.Models.Player
 
 class GameFragment : Fragment(){
 
-    val game = TicTacToeGame()
+    // val game = TicTacToeGame()
 
     val player1 = PreferencesHelper.loadPlayer("1")
     val player2 = PreferencesHelper.loadPlayer("2")
@@ -63,15 +63,15 @@ class GameFragment : Fragment(){
             .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
             .setTitle("Pause")
             // .setMessage("What now?")
-            .addButton("Restart", -1, -1, CFAlertDialog.CFAlertActionStyle.NEGATIVE, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+            .addButton("↻ Restart", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 resetGame()
                 context?.let { SoundEffectPlayer.playWarp(it) }
                 dialog.dismiss() })
-            .addButton("End Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+            .addButton("Continue Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+                dialog.dismiss() })
+            .addButton("End Game", -1, -1, CFAlertDialog.CFAlertActionStyle.NEGATIVE, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 endGame()
                 exitGame()
-                dialog.dismiss() })
-            .addButton("Continue Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 dialog.dismiss() })
         builder.show()
     }
@@ -122,7 +122,6 @@ class GameFragment : Fragment(){
 
     fun aiMakeMove() {
 
-
         val handler = Handler()
         handler.postDelayed({
 
@@ -136,7 +135,10 @@ class GameFragment : Fragment(){
 
             if (canMakeMove(3) && (player1.moves.containsAll(listOf(1, 2)))) {
                 random = 3;
-
+            } else if (canMakeMove(6) && (player1.moves.containsAll(listOf(4, 5)))) {
+                random = 6
+            } else if (canMakeMove(9) && (player1.moves.containsAll(listOf(7, 8)))) {
+                random = 9
             }
 
             makeMove(getButtonFromIndex(random), random)
@@ -155,7 +157,6 @@ class GameFragment : Fragment(){
     fun checkWinner() {
 
         if (winningMoves.any{
-
                 player1.moves.containsAll(it.asList())
 
             }) {
