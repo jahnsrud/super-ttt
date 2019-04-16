@@ -55,6 +55,10 @@ class GameFragment : Fragment(){
             openPauseMenu()
         })
 
+        restartButton.setOnClickListener({
+            resetGame()
+        })
+
         resetGame()
 
 
@@ -184,7 +188,7 @@ class GameFragment : Fragment(){
     }
 
     fun displayWinModeForPlayer(player: Player) {
-        Toast.makeText(activity, player.name + " won 🥳", Toast.LENGTH_SHORT).show()
+        gameOverText.setText(player.name + " won 🥳")
 
         if (player == player2 && player.isAI) {
             context?.let { SoundEffectPlayer.playLost(it) }
@@ -197,7 +201,7 @@ class GameFragment : Fragment(){
 
 
     fun displayDrawMode() {
-        Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()
+        gameOverText.setText("Hm! Draw!")
         context?.let { SoundEffectPlayer.playLost(it) }
         player1Image.setImageResource(R.drawable.mario_unselected)
         player2Image.setImageResource(R.drawable.luigi_unselected_flipped)
@@ -212,6 +216,9 @@ class GameFragment : Fragment(){
         }
 
         timer.stop()
+        gameControllers.visibility = View.GONE
+        gameOverView.visibility = View.VISIBLE
+
 
     }
 
@@ -272,6 +279,10 @@ class GameFragment : Fragment(){
 
         timer.base = SystemClock.elapsedRealtime()
         timer.start()
+
+        gameControllers.visibility = View.VISIBLE
+        gameOverView.visibility = View.GONE
+
 
     }
 
