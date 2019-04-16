@@ -26,9 +26,16 @@
                 android:text="leaderboards" android:textSize="22sp" android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark" android:textAlignment="center"
                 android:fontFamily="@font/super_mario_font"/>
-        <android.support.v7.widget.RecyclerView
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/leaderboardsRecyclerView"/>
+                android:layout_height="match_parent" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+                android:background="@drawable/rounded_background" android:layout_marginBottom="20dp">
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/leaderboardsRecyclerView"
+                    android:padding="20dp"/>
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

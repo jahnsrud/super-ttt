@@ -24,6 +24,7 @@ class LeaderboardFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        setOnClickListeners()
         configureRecyclerView()
 
     }

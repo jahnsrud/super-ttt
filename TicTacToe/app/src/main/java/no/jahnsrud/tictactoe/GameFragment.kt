@@ -15,7 +15,6 @@ import com.crowdfire.cfalertdialog.CFAlertDialog
 import kotlinx.android.synthetic.main.fragment_game.*
 import no.jahnsrud.tictactoe.GameLogic.TicTacToeGame
 import no.jahnsrud.tictactoe.Models.Player
-import java.util.Collections.rotate
 import android.view.animation.AnimationUtils
 import android.view.animation.Animation
 
@@ -62,6 +61,9 @@ class GameFragment : Fragment(){
         }
 
         pauseButton.setOnClickListener({
+            openPauseMenu()
+        })
+        gameControllers.setOnClickListener({
             openPauseMenu()
         })
 
