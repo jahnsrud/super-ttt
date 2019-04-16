@@ -123,8 +123,7 @@ class GameFragment : Fragment(){
             button.setImageResource(PLAYER_2_SYMBOL)
         }
 
-        val animation = AnimationUtils.loadAnimation(context, R.anim.bounce_animation) as Animation
-        button.startAnimation(animation)
+        button.startAnimation(bounceAnimation())
         button.isEnabled = false
 
         checkWinner()
@@ -218,7 +217,13 @@ class GameFragment : Fragment(){
         timer.stop()
         gameControllers.visibility = View.GONE
         gameOverView.visibility = View.VISIBLE
+        gameOverView.startAnimation(bounceAnimation())
 
+
+    }
+
+    fun bounceAnimation() : Animation {
+        return AnimationUtils.loadAnimation(context, R.anim.bounce_animation) as Animation
 
     }
 
@@ -282,6 +287,7 @@ class GameFragment : Fragment(){
 
         gameControllers.visibility = View.VISIBLE
         gameOverView.visibility = View.GONE
+        gameControllers.startAnimation(bounceAnimation())
 
 
     }
