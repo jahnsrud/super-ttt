@@ -8,6 +8,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:background="@color/lightGrayBackground">
 
+        <TextView
+                android:text="players"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView2" android:textSize="30sp"
+                android:textColor="@color/colorPrimaryDark" android:textStyle="bold"
+                android:fontFamily="@font/super_mario_font"
+                tools:layout_editor_absoluteX="44dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                android:textAlignment="center"/>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -16,20 +25,14 @@
                 android:layout_marginEnd="20dp" app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="100dp" app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="100dp" android:padding="24dp"
-                android:background="@drawable/rounded_background">
-            <TextView
-                    android:text="players"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/textView2" android:textSize="30sp"
-                    android:textColor="@color/colorPrimaryDark" android:textStyle="bold"
-                    android:layout_marginBottom="16dp" android:fontFamily="@font/super_mario_font"/>
+                android:background="@drawable/rounded_background" android:id="@+id/linearLayout">
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/player1TextField" android:hint="Player 1" android:textStyle="bold"
-                    android:singleLine="true"/>
+                    android:singleLine="true" android:layout_marginTop="8dp"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

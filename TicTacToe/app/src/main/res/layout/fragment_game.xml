@@ -164,7 +164,7 @@
                                 android:layout_weight="1" android:layout_marginLeft="32dp"/>
                         <Button
                                 android:text="❙❙"
-                                android:layout_width="100dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content" android:id="@+id/pauseButton"
                                 style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"/>
                     </LinearLayout>
@@ -172,19 +172,19 @@
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="bottom|center|center_vertical"
+                            android:gravity="center|center_vertical"
                             android:background="@drawable/rounded_background"
-                            android:id="@+id/gameOverView" android:layout_gravity="bottom|center">
+                            android:id="@+id/gameOverView" android:layout_gravity="bottom">
                         <TextView
                                 android:text="STATUS"
                                 android:layout_width="130dp"
                                 android:layout_height="36dp" android:id="@+id/gameOverText" android:textSize="18sp"
-                                android:textStyle="bold" android:layout_weight="1"
+                                android:textStyle="bold"
                                 android:textColor="@android:color/black" android:layout_marginLeft="32dp"
-                                android:gravity="bottom|center_vertical"/>
+                                android:gravity="center_vertical" android:layout_weight="1"/>
                         <Button
                                 android:text="↻"
-                                android:layout_width="100dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content" android:id="@+id/restartButton"
                                 style="@style/Widget.AppCompat.Button.Borderless" android:textSize="30sp"/>
                     </LinearLayout>
