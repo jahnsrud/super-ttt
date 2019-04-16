@@ -12,6 +12,11 @@ open class Player : Serializable {
         this.isAI = isAi
     }
 
+    constructor() {
+        this.name = ""
+        this.isAI = false
+    }
+
     fun clearMoves() {
         moves.clear()
     }

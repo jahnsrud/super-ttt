@@ -10,7 +10,7 @@
                 app:popUpTo="@+id/mainFragment" app:enterAnim="@anim/slide_in_right"
                 app:popEnterAnim="@anim/slide_in_left"/>
         <action android:id="@+id/action_mainFragment_to_leaderboardFragment" app:destination="@id/leaderboardFragment"
-                app:enterAnim="@anim/fade_in" app:popEnterAnim="@anim/fade_in"/>
+                app:enterAnim="@anim/slide_in_top" app:popEnterAnim="@anim/fade_in"/>
     </fragment>
     <fragment android:id="@+id/gameFragment"
               android:name="no.jahnsrud.tictactoe.GameFragment"

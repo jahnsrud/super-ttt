@@ -19,8 +19,6 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_main, container, false)
 
     }
@@ -28,12 +26,14 @@ class MainFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        PreferencesHelper.init(this.context!!)
+
         player1Box.setOnClickListener({
-            openGame()
+            openGame(false)
         })
 
         player2Box.setOnClickListener({
-            openGame()
+            openGame(true)
         })
 
         leaderboardButton.setOnClickListener({
@@ -51,7 +51,10 @@ class MainFragment : Fragment() {
 
     }
 
-    fun openGame() {
+    fun openGame(playAgainstAi: Boolean) {
+
+        PreferencesHelper.setPlayMode(playAgainstAi)
+
         context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
         Navigation.findNavController(this.view!!).navigate(R.id.action_mainFragment_to_startFragment)
     }

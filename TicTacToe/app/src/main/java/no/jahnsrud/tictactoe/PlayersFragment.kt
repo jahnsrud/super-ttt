@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +16,8 @@ import android.view.inputmethod.InputMethodManager
 
 class PlayersFragment : Fragment() {
 
-    var player1 = Player("", false)
-    var player2 = Player("", false)
+    var player1 = Player()
+    var player2 = Player()
 
     val DEFAULT_BOT_NAME = "TTTBot"
 
@@ -24,13 +25,19 @@ class PlayersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_players, container, false)
     }
 
     override fun onStart() {
         super.onStart()
 
+        setOnClickListeners()
+        loadPlayers()
+        updateUI()
+
+    }
+
+    fun setOnClickListeners() {
         playButton.setOnClickListener({
             startGame()
         })
@@ -38,32 +45,44 @@ class PlayersFragment : Fragment() {
         aiSwitch.setOnCheckedChangeListener({ buttonView, isChecked ->
 
             player2.isAI = isChecked
+            PreferencesHelper.setPlayMode(isChecked)
 
             updateUI()
             savePlayers()
             loadPlayers()
 
         })
+    }
 
-        PreferencesHelper.init(this.context!!)
+    fun loadPlayers() {
+        player1 = PreferencesHelper.loadPlayer("1")
+        player2 = PreferencesHelper.loadPlayer("2")
 
-        loadPlayers()
+        player1TextField.setText(player1.name)
+
+        player2.isAI = PreferencesHelper.checkIsAi()
+
         updateUI()
+
 
     }
 
     fun updateUI() {
-        if (!player2.isAI) {
+        if (player2.isAI) {
             // player2TextField.text.clear()
-            player2TextField.visibility = View.VISIBLE
+            player2TextField.visibility = View.GONE
+            player2TextField.setText(DEFAULT_BOT_NAME)
 
         } else {
-            player2TextField.visibility = View.GONE
+            player2TextField.visibility = View.VISIBLE
+            player2TextField.setText(player2.name)
         }
+
+        aiSwitch.isChecked = player2.isAI
+        player2TextField.isEnabled = !player2.isAI
     }
 
     fun startGame() {
-        savePlayers()
 
         if (player1.name.length < 1) {
             player1TextField.setFocusableInTouchMode(true);
@@ -77,6 +96,8 @@ class PlayersFragment : Fragment() {
             // openKeyboard()
             return
         }
+
+        savePlayers()
 
         this.context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
         Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)
@@ -94,22 +115,6 @@ class PlayersFragment : Fragment() {
 
     }
 
-    fun loadPlayers() {
-        player1 = PreferencesHelper.loadPlayer("1")
-        player1TextField.setText(player1.name)
-
-        player2 = PreferencesHelper.loadPlayer("2")
-
-        if (player2.isAI) {
-            player2TextField.setText(DEFAULT_BOT_NAME)
-        } else {
-            player2TextField.setText(player2.name)
-        }
-
-        aiSwitch.isChecked = player2.isAI
-        player2TextField.isEnabled = !player2.isAI
-
-    }
 
     fun savePlayers() {
 

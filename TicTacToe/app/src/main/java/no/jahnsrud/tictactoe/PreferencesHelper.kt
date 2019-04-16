@@ -15,6 +15,17 @@ object PreferencesHelper {
 
     }
 
+    fun setPlayMode(isAi: Boolean) {
+        val editor = prefs!!.edit()
+        editor.putBoolean("isAi", isAi)
+        editor.apply()
+    }
+
+    fun checkIsAi() : Boolean {
+
+        return prefs!!.getBoolean("isAi", false)
+    }
+
     fun savePlayer(player: Player, playerId:String) {
 
         val gson = Gson()
