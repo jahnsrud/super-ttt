@@ -14,6 +14,7 @@ import androidx.navigation.Navigation
 import com.crowdfire.cfalertdialog.CFAlertDialog
 import kotlinx.android.synthetic.main.fragment_game.*
 import no.jahnsrud.tictactoe.GameLogic.TicTacToeGame
+import no.jahnsrud.tictactoe.Models.Player
 
 class GameFragment : Fragment(){
 
@@ -133,11 +134,10 @@ class GameFragment : Fragment(){
 
             }
 
-            /*
-              if (player1.moves.containsAll(listOf(1, 2))) {
+            if (canMakeMove(3) && (player1.moves.containsAll(listOf(1, 2)))) {
                 random = 3;
+
             }
-             */
 
             makeMove(getButtonFromIndex(random), random)
 
@@ -159,13 +159,13 @@ class GameFragment : Fragment(){
                 player1.moves.containsAll(it.asList())
 
             }) {
-            displayWinModePlayer1()
+            displayWinModeForPlayer(player1)
 
         } else if (winningMoves.any {
                 player2.moves.containsAll(it.asList())
 
             }) {
-            displayWinModePlayer2()
+            displayWinModeForPlayer(player2)
 
         } else if (player1.moves.size + player2.moves.size == 9) {
            displayDrawMode()
@@ -175,19 +175,18 @@ class GameFragment : Fragment(){
 
     }
 
-    fun displayWinModePlayer1() {
-        Toast.makeText(activity, player1.name + " won 🥳", Toast.LENGTH_SHORT).show()
-        context?.let { SoundEffectPlayer.playWin(it) }
+    fun displayWinModeForPlayer(player: Player) {
+        Toast.makeText(activity, player.name + " won 🥳", Toast.LENGTH_SHORT).show()
+
+        if (player == player2 && player.isAI) {
+            context?.let { SoundEffectPlayer.playLost(it) }
+        } else {
+            context?.let { SoundEffectPlayer.playWin(it) }
+        }
 
         endGame()
     }
 
-    fun displayWinModePlayer2() {
-        Toast.makeText(activity, player2.name + " won 🥳", Toast.LENGTH_SHORT).show()
-        context?.let { SoundEffectPlayer.playLost(it) }
-
-        endGame()
-    }
 
     fun displayDrawMode() {
         Toast.makeText(activity, "Hm! Draw!", Toast.LENGTH_SHORT).show()

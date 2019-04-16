@@ -29,11 +29,11 @@ class MainFragment : Fragment() {
         PreferencesHelper.init(this.context!!)
 
         player1Box.setOnClickListener({
-            openGame(false)
+            openGame(true)
         })
 
         player2Box.setOnClickListener({
-            openGame(true)
+            openGame(false)
         })
 
         leaderboardButton.setOnClickListener({
