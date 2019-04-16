@@ -15,6 +15,11 @@ import com.crowdfire.cfalertdialog.CFAlertDialog
 import kotlinx.android.synthetic.main.fragment_game.*
 import no.jahnsrud.tictactoe.GameLogic.TicTacToeGame
 import no.jahnsrud.tictactoe.Models.Player
+import java.util.Collections.rotate
+import android.view.animation.AnimationUtils
+import android.view.animation.Animation
+
+
 
 class GameFragment : Fragment(){
 
@@ -114,6 +119,8 @@ class GameFragment : Fragment(){
             button.setImageResource(PLAYER_2_SYMBOL)
         }
 
+        val animation = AnimationUtils.loadAnimation(context, R.anim.bounce_animation) as Animation
+        button.startAnimation(animation)
         button.isEnabled = false
 
         checkWinner()
