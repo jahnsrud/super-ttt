@@ -40,11 +40,17 @@
                     android:ems="10"
                     android:id="@+id/player2TextField" android:hint="Player 2" android:textStyle="bold"
                     android:singleLine="true"/>
-            <Switch
-                    android:text="Play against CPU"
+            <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp" android:id="@+id/aiSwitch" android:textOn="CPU Enabled"
-                    android:textOff="CPU Disabled" android:textStyle="bold" android:textSize="18sp"/>
+                    android:layout_height="wrap_content" android:background="@drawable/rounded_background_colored">
+                <Switch
+                        android:text="Play against CPU"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp" android:id="@+id/aiSwitch" android:textOn="CPU Enabled"
+                        android:textOff="CPU Disabled" android:textStyle="bold" android:textSize="18sp"
+                        android:layout_marginLeft="16dp" android:layout_marginRight="16dp"/>
+            </LinearLayout>
             <Button
                     android:text="Start"
                     android:layout_width="match_parent"

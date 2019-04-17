@@ -30,11 +30,16 @@ class LeaderboardAdapter internal constructor(
 
         // val current = scores.get(position)
 
+        val keyList = ArrayList(scores.keys)
+        val valueList = ArrayList(scores.values)
+
         for (score in scores) {
-            holder.itemView.playerNameField.text = score.key
-            holder.itemView.playerScoreField.text = score.toString()
+            holder.itemView.playerNameField.text = keyList[position]
+            holder.itemView.playerScoreField.text = valueList.get(position).toString()
             holder.itemView.setOnClickListener() {
-        }
+
+
+            }
 
         }
 

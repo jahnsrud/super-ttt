@@ -44,7 +44,9 @@ class PlayersFragment : Fragment() {
 
         aiSwitch.setOnCheckedChangeListener({ buttonView, isChecked ->
 
+            // player2.name = ""
             player2.isAI = isChecked
+            // player2TextField.text.clear()
             GameSettings.setPlayMode(isChecked)
 
             updateUI()

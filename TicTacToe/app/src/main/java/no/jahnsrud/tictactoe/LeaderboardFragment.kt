@@ -10,6 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_leaderboard.*
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.RecyclerView
+
 
 class LeaderboardFragment : Fragment() {
 
@@ -35,6 +38,13 @@ class LeaderboardFragment : Fragment() {
         val adapter = LeaderboardAdapter(ctx)
         leaderboardsRecyclerView.adapter = adapter
         leaderboardsRecyclerView.layoutManager = LinearLayoutManager(ctx)
+
+        leaderboardsRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                context!!,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
     }
 
