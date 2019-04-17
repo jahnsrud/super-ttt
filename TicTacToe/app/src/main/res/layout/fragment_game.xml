@@ -144,12 +144,12 @@
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="bottom|center_horizontal" android:layout_marginBottom="32dp"
-                        android:layout_marginTop="64dp" android:layout_weight="1">
+                        android:gravity="bottom|center_horizontal" android:layout_marginBottom="16dp"
+                        android:layout_marginTop="32dp" android:layout_weight="1">
                     <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="70dp"
                             android:gravity="bottom|center|center_vertical"
                             android:background="@drawable/rounded_background"
                             android:layout_gravity="bottom" android:id="@+id/gameControllers">
@@ -171,17 +171,33 @@
                     <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="70dp"
                             android:gravity="center|center_vertical"
                             android:background="@drawable/rounded_background"
                             android:id="@+id/gameOverView" android:layout_gravity="bottom">
-                        <TextView
-                                android:text="STATUS"
-                                android:layout_width="130dp"
-                                android:layout_height="36dp" android:id="@+id/gameOverText" android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:textColor="@android:color/black" android:layout_marginLeft="32dp"
-                                android:gravity="center_vertical" android:layout_weight="1"/>
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" android:layout_weight="1"
+                                android:gravity="center|center_horizontal|center_vertical">
+                            <TextView
+                                    android:text="STATUS"
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/gameOverStatusText"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/darker_gray" android:layout_marginLeft="16dp"
+                                    android:gravity="center_vertical"
+                                    android:layout_height="wrap_content" android:letterSpacing="0.1"/>
+                            <TextView
+                                    android:text="NAME"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" android:id="@+id/gameOverText"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black" android:layout_marginLeft="16dp"
+                                    android:gravity="center_vertical"/>
+                        </LinearLayout>
                         <Button
                                 android:text="↻"
                                 android:layout_width="80dp"

@@ -199,7 +199,8 @@ class GameFragment : Fragment(){
     }
 
     fun displayWinModeForPlayer(player: Player) {
-        gameOverText.setText(player.name + " won 🥳")
+        gameOverStatusText.setText("WINNER 🎉")
+        gameOverText.setText(player.name)
 
         if (player == player2 && player.isAI) {
             context?.let { SoundEffectPlayer.playLost(it) }
@@ -215,7 +216,8 @@ class GameFragment : Fragment(){
 
 
     fun displayDrawMode() {
-        gameOverText.setText("Hm! Draw!")
+        gameOverStatusText.setText("Hm!")
+        gameOverText.setText("Draw!")
         context?.let { SoundEffectPlayer.playLost(it) }
         player1Image.setImageResource(R.drawable.mario_unselected)
         player2Image.setImageResource(R.drawable.luigi_unselected_flipped)
