@@ -40,25 +40,24 @@ object GameSettings {
         val playerPreferencesId = "player_"+playerId
 
         if (prefs!!.contains(playerPreferencesId)) {
+            return convertStringToPlayer(prefs!!.getString(playerPreferencesId, ""))
+        }
 
-            val playerString = prefs!!.getString(playerPreferencesId, "")
+        return Player()
+    }
 
-            if (playerString.length > 0) {
-                val gson = Gson()
-                val player = gson.fromJson(playerString, Player::class.java)
+    fun convertStringToPlayer(playerString: String) : Player {
+        if (playerString.length > 0) {
+            val gson = Gson()
+            val player = gson.fromJson(playerString, Player::class.java)
 
+            if (player != null) {
+                return player
 
-                if (player != null) {
-                    return player
-
-                } else {
-                    return Player("", false)
-
-                }
             }
         }
 
-        return Player("", false)
+        return Player()
     }
 
     fun addVictoryToHighscore(player: Player) {
@@ -66,14 +65,21 @@ object GameSettings {
         val playerName = player.name.toUpperCase()
         var score = 1
 
-        val highscores = HashMap<String, Int>()
+        val highscores = getHighscores()
 
         if (highscores.contains(playerName)) {
             score = highscores.get(playerName)!! + 1
+        } else {
+            highscores.put(playerName, score)
         }
 
+        // Save...
 
-        // logic...
+        val editor = prefs!!.edit()
+        // editor.put
+        editor.apply()
+
+
 
     }
 
