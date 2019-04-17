@@ -14,7 +14,7 @@ class LeaderboardAdapter internal constructor(
 ) : RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var scores = arrayListOf<String>("Nintendo", "IKEA", "Apple", "Vy", "Flytoget", "Ruter")
+    private var scores = GameSettings.getHighscores()
 
     inner class LeaderboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -27,11 +27,14 @@ class LeaderboardAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: LeaderboardViewHolder, position: Int) {
-        val current = scores[position]
 
-        holder.itemView.playerNameField.text = current
-        holder.itemView.playerScoreField.text = "0000?!"
-        holder.itemView.setOnClickListener() {
+        // val current = scores.get(position)
+
+        for (score in scores) {
+            holder.itemView.playerNameField.text = score.key
+            holder.itemView.playerScoreField.text = score.key
+            holder.itemView.setOnClickListener() {
+        }
 
         }
 

@@ -4,11 +4,16 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import no.jahnsrud.tictactoe.Models.Player
+import com.google.gson.reflect.TypeToken
+
+
 
 object GameSettings {
 
     val PREFS_FILENAME = "no.jahnsrud.tictactoe.prefs"
     var prefs: SharedPreferences? = null
+    val PLAYER_PREFIX = "player_"
+    val HIGHSCORES_KEY = "highscores"
 
     fun init(context: Context) {
         prefs = context.getSharedPreferences(PREFS_FILENAME, 0)
@@ -17,12 +22,12 @@ object GameSettings {
 
     fun setPlayMode(isAi: Boolean) {
         val editor = prefs!!.edit()
-        editor.putBoolean("isAi", isAi)
+        editor.putBoolean("shouldPlayAgainstAi", isAi)
         editor.apply()
     }
 
     fun checkIsAi() : Boolean {
-        return prefs!!.getBoolean("isAi", false)
+        return prefs!!.getBoolean("shouldPlayAgainstAi", false)
     }
 
     fun savePlayer(player: Player, playerId:String) {
@@ -31,13 +36,13 @@ object GameSettings {
         val playerString = gson.toJson(player)
 
         val editor = prefs!!.edit()
-        editor.putString("player_"+playerId, playerString)
+        editor.putString(PLAYER_PREFIX+playerId, playerString)
         editor.apply()
     }
 
     fun loadPlayer(playerId:String) : Player {
 
-        val playerPreferencesId = "player_"+playerId
+        val playerPreferencesId = PLAYER_PREFIX+playerId
 
         if (prefs!!.contains(playerPreferencesId)) {
             return convertStringToPlayer(prefs!!.getString(playerPreferencesId, ""))
@@ -63,20 +68,26 @@ object GameSettings {
     fun addVictoryToHighscore(player: Player) {
 
         val playerName = player.name.toUpperCase()
-        var score = 1
+        var score = 0
 
         val highscores = getHighscores()
 
         if (highscores.contains(playerName)) {
             score = highscores.get(playerName)!! + 1
         } else {
-            highscores.put(playerName, score)
+            // Welcome, new player!
+            score = 1
         }
 
-        // Save...
+        highscores.put(playerName, score)
 
+        // Convert
+        val gson = Gson()
+        val hashMapString = gson.toJson(highscores)
+
+        // Save
         val editor = prefs!!.edit()
-        // editor.put
+        editor.putString(HIGHSCORES_KEY, hashMapString)
         editor.apply()
 
 
@@ -85,7 +96,20 @@ object GameSettings {
 
     fun getHighscores() : HashMap<String, Int> {
 
-        // TODO!
+        val gson = Gson()
+
+        val storedHashMapString = prefs!!.getString(HIGHSCORES_KEY, "")
+        if (storedHashMapString.length > 0) {
+            val type = object : TypeToken<HashMap<String, Int>>() {
+
+            }.type
+            val testHashMap2:HashMap<String, Int> = gson.fromJson(storedHashMapString, type)
+
+            testHashMap2.forEach { (key, value) -> println("$key = $value") }
+
+
+            return testHashMap2
+        }
 
         return HashMap<String, Int>()
     }
