@@ -32,7 +32,7 @@ class LeaderboardAdapter internal constructor(
 
         for (score in scores) {
             holder.itemView.playerNameField.text = score.key
-            holder.itemView.playerScoreField.text = score.key
+            holder.itemView.playerScoreField.text = score.toString()
             holder.itemView.setOnClickListener() {
         }
 
