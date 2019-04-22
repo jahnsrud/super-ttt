@@ -1,17 +1,18 @@
-package no.jahnsrud.tictactoe
+package no.jahnsrud.tictactoe.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_players.*
-import no.jahnsrud.tictactoe.Models.Player
+import no.jahnsrud.tictactoe.models.Player
 import android.view.inputmethod.InputMethodManager
+import no.jahnsrud.tictactoe.GameSettings
+import no.jahnsrud.tictactoe.R
+import no.jahnsrud.tictactoe.SoundEffectPlayer
 
 
 class PlayersFragment : androidx.fragment.app.Fragment() {

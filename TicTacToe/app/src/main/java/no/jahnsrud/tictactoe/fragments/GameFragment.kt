@@ -1,10 +1,9 @@
-package no.jahnsrud.tictactoe
+package no.jahnsrud.tictactoe.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.SystemClock
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,12 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import com.crowdfire.cfalertdialog.CFAlertDialog
 import kotlinx.android.synthetic.main.fragment_game.*
-import no.jahnsrud.tictactoe.GameLogic.TicTacToeGame
-import no.jahnsrud.tictactoe.Models.Player
+import no.jahnsrud.tictactoe.models.Player
 import android.view.animation.AnimationUtils
 import android.view.animation.Animation
-
+import no.jahnsrud.tictactoe.GameSettings
+import no.jahnsrud.tictactoe.R
+import no.jahnsrud.tictactoe.SoundEffectPlayer
 
 
 class GameFragment : androidx.fragment.app.Fragment(){

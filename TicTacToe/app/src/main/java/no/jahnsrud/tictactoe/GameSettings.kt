@@ -3,7 +3,7 @@ package no.jahnsrud.tictactoe
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
-import no.jahnsrud.tictactoe.Models.Player
+import no.jahnsrud.tictactoe.models.Player
 import com.google.gson.reflect.TypeToken
 
 

@@ -1,6 +1,6 @@
-package no.jahnsrud.tictactoe.GameLogic
+package no.jahnsrud.tictactoe.game_logic
 
-import no.jahnsrud.tictactoe.Models.Player
+import no.jahnsrud.tictactoe.models.Player
 
 class TicTacToeGame {
     var player1 = Player()

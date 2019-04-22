@@ -1,17 +1,15 @@
-package no.jahnsrud.tictactoe
+package no.jahnsrud.tictactoe.fragments
 
 
-import androidx.lifecycle.Observer
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_leaderboard.*
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
+import no.jahnsrud.tictactoe.adapters.LeaderboardAdapter
+import no.jahnsrud.tictactoe.R
+import no.jahnsrud.tictactoe.SoundEffectPlayer
 
 
 class LeaderboardFragment : androidx.fragment.app.Fragment() {

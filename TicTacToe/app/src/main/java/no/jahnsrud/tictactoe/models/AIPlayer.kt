@@ -1,4 +1,4 @@
-package no.jahnsrud.tictactoe.Models
+package no.jahnsrud.tictactoe.models
 
 class AIPlayer : Player("TTTBot", true) {
 

@@ -1,4 +1,4 @@
-package no.jahnsrud.tictactoe
+package no.jahnsrud.tictactoe.fragments
 
 import android.content.Context
 import android.net.Uri
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import no.jahnsrud.tictactoe.R
 
 
 // TODO: Rename parameter arguments, choose names that match

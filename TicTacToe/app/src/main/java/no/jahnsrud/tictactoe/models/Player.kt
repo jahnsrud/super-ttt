@@ -1,4 +1,4 @@
-package no.jahnsrud.tictactoe.Models
+package no.jahnsrud.tictactoe.models
 
 import java.io.Serializable
 

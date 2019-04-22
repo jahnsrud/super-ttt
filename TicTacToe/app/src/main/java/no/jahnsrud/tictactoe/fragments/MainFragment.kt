@@ -1,4 +1,4 @@
-package no.jahnsrud.tictactoe
+package no.jahnsrud.tictactoe.fragments
 
 
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_main.*
+import no.jahnsrud.tictactoe.GameSettings
+import no.jahnsrud.tictactoe.R
+import no.jahnsrud.tictactoe.SoundEffectPlayer
 
 /**
  * A simple [Fragment] subclass.

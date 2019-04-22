@@ -1,13 +1,12 @@
-package no.jahnsrud.tictactoe
+package no.jahnsrud.tictactoe.adapters
 
 import android.content.Context
-import android.content.Intent
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.leaderboard_list_item.view.*
-import no.jahnsrud.tictactoe.Models.Player
+import no.jahnsrud.tictactoe.GameSettings
+import no.jahnsrud.tictactoe.R
 
 class LeaderboardAdapter internal constructor(
     context: Context
@@ -21,7 +20,7 @@ class LeaderboardAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeaderboardViewHolder {
-        val itemView = inflater.inflate(no.jahnsrud.tictactoe.R.layout.leaderboard_list_item, parent, false)
+        val itemView = inflater.inflate(R.layout.leaderboard_list_item, parent, false)
         return LeaderboardViewHolder(itemView)
 
     }
