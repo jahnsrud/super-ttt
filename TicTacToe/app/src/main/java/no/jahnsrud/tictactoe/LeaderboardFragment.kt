@@ -1,20 +1,20 @@
 package no.jahnsrud.tictactoe
 
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_leaderboard.*
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 
 
-class LeaderboardFragment : Fragment() {
+class LeaderboardFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,12 +37,12 @@ class LeaderboardFragment : Fragment() {
 
         val adapter = LeaderboardAdapter(ctx)
         leaderboardsRecyclerView.adapter = adapter
-        leaderboardsRecyclerView.layoutManager = LinearLayoutManager(ctx)
+        leaderboardsRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(ctx)
 
         leaderboardsRecyclerView.addItemDecoration(
-            DividerItemDecoration(
+            androidx.recyclerview.widget.DividerItemDecoration(
                 context!!,
-                DividerItemDecoration.VERTICAL
+                androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
             )
         )
 

@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
                 android:background="@drawable/rounded_background" android:layout_marginBottom="20dp">
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" android:id="@+id/leaderboardsRecyclerView"
                     android:paddingLeft="20dp" android:paddingRight="20dp"/>

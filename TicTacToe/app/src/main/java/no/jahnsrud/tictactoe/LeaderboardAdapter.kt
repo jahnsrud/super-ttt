@@ -2,7 +2,7 @@ package no.jahnsrud.tictactoe
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +11,12 @@ import no.jahnsrud.tictactoe.Models.Player
 
 class LeaderboardAdapter internal constructor(
     context: Context
-) : RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder>() {
+) : androidx.recyclerview.widget.RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var scores = GameSettings.getHighscores()
 
-    inner class LeaderboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class LeaderboardViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     }
 

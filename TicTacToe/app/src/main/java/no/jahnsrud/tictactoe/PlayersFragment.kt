@@ -3,7 +3,7 @@ package no.jahnsrud.tictactoe
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,7 @@ import no.jahnsrud.tictactoe.Models.Player
 import android.view.inputmethod.InputMethodManager
 
 
-class PlayersFragment : Fragment() {
+class PlayersFragment : androidx.fragment.app.Fragment() {
 
     var player1 = Player()
     var player2 = Player()
