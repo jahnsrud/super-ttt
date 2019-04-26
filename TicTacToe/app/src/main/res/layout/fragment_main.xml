@@ -3,11 +3,20 @@
              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".fragments.MainFragment">
+             tools:context=".fragments.MainFragment" android:background="@color/lightGrayBackground">
+    <ImageView
+            android:src="@drawable/image_cloud"
+            android:layout_width="50dp"
+            android:layout_height="50dp" android:id="@+id/cloudImageView1" android:layout_marginTop="42dp"/>
+    <ImageView
+            android:src="@drawable/image_cloud"
+            android:layout_width="40dp"
+            android:layout_height="40dp" android:id="@+id/cloudImageView2" android:layout_marginTop="16dp"
+            android:layout_marginLeft="48dp"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:background="@color/lightGrayBackground">
+            android:layout_height="match_parent">
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="115dp" android:id="@+id/headingTextView" android:textStyle="bold"

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#C72D19</color>
     <color name="lightGrayBackground">#F6F6F6</color>
     <color name="onePlayerBackground">#000000</color>
     <color name="twoPlayerBackground">#3C3C3C</color>

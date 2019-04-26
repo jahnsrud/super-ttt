@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_main.*
 import no.jahnsrud.tictactoe.GameSettings
@@ -30,7 +32,21 @@ class MainFragment : androidx.fragment.app.Fragment() {
         super.onStart()
 
         GameSettings.init(this.context!!)
+        setOnClickListeners()
+        animateCloud()
+    }
 
+    fun animateCloud() {
+        val anim = AnimationUtils.loadAnimation(context, R.anim.slide_cloud) as Animation
+        anim.setRepeatCount(Animation.INFINITE);
+        anim.fillAfter = true
+
+        cloudImageView1.startAnimation(anim)
+        cloudImageView2.startAnimation(anim)
+
+    }
+
+    fun setOnClickListeners() {
         player1Box.setOnClickListener({
             openGame(true)
         })

@@ -40,10 +40,14 @@
                     android:ems="10"
                     android:id="@+id/player2TextField" android:hint="Player 2" android:textStyle="bold"
                     android:singleLine="true"/>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"/>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:background="@drawable/rounded_background_colored">
+                    android:layout_height="wrap_content" android:background="@drawable/rounded_background_colored"
+                    android:id="@+id/cpuBox">
                 <Switch
                         android:text="Play against CPU"
                         android:layout_width="match_parent"
@@ -54,7 +58,7 @@
             <Button
                     android:text="Start"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/playButton" android:layout_marginTop="16dp"
+                    android:layout_height="58dp" android:id="@+id/playButton" android:layout_marginTop="16dp"
                     style="@style/Widget.AppCompat.Button.Colored" android:textStyle="bold"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
