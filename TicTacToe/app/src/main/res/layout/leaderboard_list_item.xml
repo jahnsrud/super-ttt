@@ -8,25 +8,25 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="0dp"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical" android:paddingTop="8dp" android:paddingBottom="8dp">
         <TextView
                 android:text="PLAYER_NAME"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/playerNameField" android:textSize="18sp"
                 android:textStyle="bold" android:layout_weight="1"
                 android:layout_marginRight="16dp"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/black" android:layout_marginLeft="16dp"/>
         <TextView
                 android:text="0"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content" android:id="@+id/playerScoreField" android:textSize="18sp"
                 android:textStyle="bold" android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:background="@drawable/cfdialog_positive_button_background_drawable" android:paddingLeft="10dp"
-                android:paddingRight="10dp"/>
+                android:background="@color/colorAccent" android:paddingLeft="10dp"
+                android:paddingRight="10dp" android:layout_marginRight="16dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

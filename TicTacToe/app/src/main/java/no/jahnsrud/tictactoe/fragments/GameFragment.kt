@@ -84,11 +84,11 @@ class GameFragment : androidx.fragment.app.Fragment(){
             .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
             .setTitle("Pause")
             // .setMessage("What now?")
+            .addButton("Continue Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
+                dialog.dismiss() })
             .addButton("↻ Restart", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 resetGame()
                 context?.let { SoundEffectPlayer.playWarp(it) }
-                dialog.dismiss() })
-            .addButton("Continue Game", -1, -1, CFAlertDialog.CFAlertActionStyle.DEFAULT, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 dialog.dismiss() })
             .addButton("End Game", -1, -1, CFAlertDialog.CFAlertActionStyle.NEGATIVE, CFAlertDialog.CFAlertActionAlignment.JUSTIFIED, { dialog, which->
                 endGame()
