@@ -8,26 +8,20 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:background="@color/lightGrayBackground">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="115dp" android:id="@+id/textView" android:textStyle="bold"
-                    android:textSize="32sp" android:textAlignment="center" android:textColor="@android:color/black"
-                    android:gravity="center" android:fontFamily="@font/super_mario_font"
-                    android:text="@string/app_name_styled"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-                    android:paddingTop="16dp"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="115dp" android:id="@+id/headingTextView" android:textStyle="bold"
+                android:textSize="32sp" android:textAlignment="center" android:textColor="@android:color/black"
+                android:gravity="center" android:fontFamily="@font/super_mario_font"
+                android:text="@string/app_name_styled"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:paddingTop="16dp"/>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginRight="20dp">
+                android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+                android:id="@+id/playerBoxes">
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -37,22 +31,23 @@
                 <ImageView
                         android:src="@drawable/player_mario"
                         android:layout_width="44dp"
-                        android:layout_height="44dp" android:id="@+id/imageView"
-                        android:scaleType="centerInside"/>
+                        android:layout_height="44dp" android:id="@+id/player1Box_image_1"
+                        android:scaleType="centerInside" android:contentDescription="@string/oneplayer_subtitle"/>
                 <Space
                         android:layout_width="match_parent"
                         android:layout_height="16dp"/>
                 <TextView
-                        android:text="1 PLAYER"
+                        android:text="@string/oneplayer_title"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView3"
+                        android:layout_height="wrap_content" android:id="@+id/player1Box_text"
                         android:textAlignment="center" android:textStyle="bold"
                         android:textColor="@color/colorPrimaryDark" android:typeface="normal"
                         android:textSize="22sp"/>
                 <TextView
-                        android:text="CPU"
+                        android:text="@string/oneplayer_subtitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView4" android:textSize="14sp"
+                        android:layout_height="wrap_content" android:id="@+id/player1Box_subtitle"
+                        android:textSize="14sp"
                         android:textAlignment="center"
                         android:textColor="@android:color/tertiary_text_light"/>
             </LinearLayout>
@@ -69,27 +64,30 @@
                     <ImageView
                             android:src="@drawable/player_mario"
                             android:layout_width="44dp"
-                            android:layout_height="44dp" android:id="@+id/imageView"
-                            android:scaleType="centerInside" android:layout_marginRight="4dp"/>
+                            android:layout_height="44dp" android:id="@+id/player2Box_image_1"
+                            android:scaleType="centerInside"
+                            android:layout_marginEnd="4dp" android:contentDescription="@string/twoplayer_title"/>
                     <ImageView
                             android:src="@drawable/player_luigi_flipped"
                             android:layout_width="44dp"
-                            android:layout_height="44dp" android:id="@+id/imageView4"
-                            android:scaleType="centerInside" android:layout_marginLeft="4dp"/>
+                            android:layout_height="44dp" android:id="@+id/player2Box_image_2"
+                            android:scaleType="centerInside" android:layout_marginStart="4dp"
+                            android:contentDescription="@string/twoplayer_title"/>
                 </LinearLayout>
                 <Space
                         android:layout_width="match_parent"
                         android:layout_height="16dp"/>
                 <TextView
-                        android:text="2 PLAYER"
+                        android:text="@string/twoplayer_title"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView3"
+                        android:layout_height="wrap_content" android:id="@+id/player2Box_text"
                         android:textAlignment="center" android:textStyle="bold"
                         android:textColor="@color/colorPrimaryDark" android:textSize="22sp"/>
                 <TextView
-                        android:text="BATTLE"
+                        android:text="@string/twoplayer_subtitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView4" android:textSize="14sp"
+                        android:layout_height="wrap_content" android:id="@+id/player2Box_subtitle"
+                        android:textSize="14sp"
                         android:textAlignment="center"
                         android:textColor="@android:color/tertiary_text_light"/>
             </LinearLayout>
@@ -97,7 +95,8 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent" android:gravity="bottom|center|center_vertical">
+                android:layout_height="fill_parent" android:gravity="bottom|center|center_vertical"
+                android:contentDescription="Go to leaderboards">
             <Button
                     android:layout_width="127dp"
                     android:layout_height="wrap_content" android:id="@+id/leaderboardButton"

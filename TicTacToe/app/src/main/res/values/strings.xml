@@ -2,4 +2,8 @@
     <string name="app_name">Super TTT</string>
     <string name="app_name_styled">super ttt</string>
     <string name="leaderboards">Leaderboards</string>
+    <string name="oneplayer_title">1 PLAYER</string>
+    <string name="oneplayer_subtitle">CPU</string>
+    <string name="twoplayer_title">2 PLAYER</string>
+    <string name="twoplayer_subtitle">BATTLE</string>
 </resources>
