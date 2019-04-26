@@ -26,20 +26,48 @@
                 android:layout_marginTop="100dp" app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="100dp" android:padding="24dp"
                 android:background="@drawable/rounded_background" android:id="@+id/linearLayout">
-            <EditText
+            <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/player1TextField" android:hint="Player 1" android:textStyle="bold"
-                    android:singleLine="true" android:layout_marginTop="8dp"/>
-            <EditText
+                    android:layout_height="wrap_content" android:id="@+id/playersPlayer1Box">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:paddingTop="8dp" android:paddingBottom="8dp">
+                    <ImageView
+                            android:src="@drawable/mario_selected"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp" android:id="@+id/player1Image"
+                            android:layout_weight="0" android:layout_marginRight="16dp"/>
+                    <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:id="@+id/player1TextField" android:hint="Player 1" android:textStyle="bold"
+                            android:singleLine="true" android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:ems="10"
-                    android:id="@+id/player2TextField" android:hint="Player 2" android:textStyle="bold"
-                    android:singleLine="true"/>
+                    android:layout_height="wrap_content" android:id="@+id/playersPlayer2Box">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:paddingBottom="8dp" android:paddingTop="8dp">
+                    <ImageView
+                            android:src="@drawable/luigi_selected"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp" android:id="@+id/player2Image"
+                            android:layout_weight="0" android:layout_marginRight="16dp"/>
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:id="@+id/player2TextField" android:hint="Player 2" android:textStyle="bold"
+                            android:singleLine="true"/>
+                </LinearLayout>
+            </LinearLayout>
             <Space
                     android:layout_width="match_parent"
                     android:layout_height="16dp"/>
@@ -56,9 +84,9 @@
                         android:layout_marginLeft="16dp" android:layout_marginRight="16dp"/>
             </LinearLayout>
             <Button
-                    android:text="Start"
+                    android:text="Play"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp" android:id="@+id/playButton" android:layout_marginTop="16dp"
+                    android:layout_height="64dp" android:id="@+id/playButton" android:layout_marginTop="16dp"
                     style="@style/Widget.AppCompat.Button.Colored" android:textStyle="bold"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

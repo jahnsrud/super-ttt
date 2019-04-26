@@ -74,11 +74,11 @@ class PlayersFragment : androidx.fragment.app.Fragment() {
     fun updateUI() {
         if (player2.isAI) {
             // player2TextField.text.clear()
-            player2TextField.visibility = View.GONE
+            playersPlayer2Box.visibility = View.GONE
             player2TextField.setText(DEFAULT_BOT_NAME)
 
         } else {
-            player2TextField.visibility = View.VISIBLE
+            playersPlayer2Box.visibility = View.VISIBLE
             player2TextField.setText(player2.name)
         }
 
