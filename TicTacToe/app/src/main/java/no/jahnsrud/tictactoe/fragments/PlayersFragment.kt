@@ -88,6 +88,9 @@ class PlayersFragment : androidx.fragment.app.Fragment() {
 
     fun startGame() {
 
+        savePlayers()
+        loadPlayers()
+
         if (player1.name.length < 1) {
             player1TextField.setFocusableInTouchMode(true);
             player1TextField.requestFocus()
@@ -100,8 +103,6 @@ class PlayersFragment : androidx.fragment.app.Fragment() {
             // openKeyboard()
             return
         }
-
-        savePlayers()
 
         this.context?.let { it1 -> SoundEffectPlayer.playNextSound(it1) }
         Navigation.findNavController(this.view!!).navigate(R.id.action_startFragment_to_gameFragment)

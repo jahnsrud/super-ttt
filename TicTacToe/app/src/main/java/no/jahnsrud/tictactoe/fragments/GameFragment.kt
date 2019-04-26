@@ -113,6 +113,10 @@ class GameFragment : androidx.fragment.app.Fragment(){
 
     fun canMakeMove(index: Int) : Boolean {
 
+        if ((index < 0) || (index > 9)) {
+            return false
+        }
+
         if (player1.moves.contains(index) || player2.moves.contains(index)) {
             return false
         }
@@ -168,23 +172,31 @@ class GameFragment : androidx.fragment.app.Fragment(){
 
     fun lookForGoodMoves() : Int {
 
-        if (checkMove(3, 1, 2)) {
+        if (checkMove(3, listOf(1, 2), player1)) {
             return 3;
-        } else if (checkMove(6,4, 5)) {
+        } else if (checkMove(1, listOf(2, 3), player1)) {
+            return 1;
+        } else if (checkMove(6, listOf(4, 5), player1)) {
             return 6;
-        } else if (checkMove(9, 7, 8)) {
+        } else if (checkMove(9, listOf(7, 8), player1)) {
             return 9;
-        } else if (checkMove(2, 5, 8)) {
+        } else if (checkMove(2, listOf(5, 8), player1)) {
             return 2;
-        }
 
+
+        // Winning moves for player 2
+        } else if (checkMove(9, listOf(1, 5), player2)) {
+            return 9;
+        } else if (checkMove(8, listOf(2, 5), player2)) {
+            return 8;
+        }
 
         return -1;
 
     }
 
-    fun checkMove(indexToCheck:Int, index1:Int, index2:Int) : Boolean {
-        if (canMakeMove(indexToCheck) && (player1.moves.containsAll(listOf(index1, index2)))) {
+    fun checkMove(indexToCheck:Int, containsArray:List<Int>, player:Player) : Boolean {
+        if (canMakeMove(indexToCheck) && (player.moves.containsAll(containsArray))) {
             return true;
         }
 
@@ -303,12 +315,18 @@ class GameFragment : androidx.fragment.app.Fragment(){
 
     }
 
+    fun getRandomStartPlayer() : Int {
+        return (1..2).random()
+    }
+
     fun resetGame() {
 
         player1.clearMoves()
         player2.clearMoves()
 
-        activePlayer = 1
+
+        activePlayer = getRandomStartPlayer()
+        setActivePlayer()
         displayActivePlayer()
 
         gameButtons.forEach {
