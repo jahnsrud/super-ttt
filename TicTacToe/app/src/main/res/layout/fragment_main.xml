@@ -20,9 +20,9 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="115dp" android:id="@+id/headingTextView" android:textStyle="bold"
-                android:textSize="32sp" android:textAlignment="center" android:textColor="@android:color/black"
+                android:textSize="27sp" android:textAlignment="center" android:textColor="@android:color/black"
                 android:gravity="center" android:fontFamily="@font/super_mario_font"
-                android:text="@string/app_name_styled"
+                android:text="super \nttt"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
                 android:paddingTop="16dp"/>
@@ -58,7 +58,7 @@
                         android:layout_height="wrap_content" android:id="@+id/player1Box_subtitle"
                         android:textSize="14sp"
                         android:textAlignment="center"
-                        android:textColor="@android:color/tertiary_text_light"/>
+                        android:textColor="@android:color/tertiary_text_light" android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
@@ -98,7 +98,7 @@
                         android:layout_height="wrap_content" android:id="@+id/player2Box_subtitle"
                         android:textSize="14sp"
                         android:textAlignment="center"
-                        android:textColor="@android:color/tertiary_text_light"/>
+                        android:textColor="@android:color/tertiary_text_light" android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
