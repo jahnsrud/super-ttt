@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_players.*
 import no.jahnsrud.tictactoe.models.Player
 import android.view.inputmethod.InputMethodManager
+import com.google.android.material.snackbar.Snackbar
 import no.jahnsrud.tictactoe.GameSettings
 import no.jahnsrud.tictactoe.R
 import no.jahnsrud.tictactoe.SoundEffectPlayer
@@ -90,7 +91,7 @@ class PlayersFragment : androidx.fragment.app.Fragment() {
         if (player1.name.length < 1) {
             player1TextField.setFocusableInTouchMode(true);
             player1TextField.requestFocus()
-            // openKeyboard()
+            view?.let { Snackbar.make(it, "Please enter name", Snackbar.LENGTH_SHORT).show() }
 
             return
         } else if (player2.name.length < 1) {

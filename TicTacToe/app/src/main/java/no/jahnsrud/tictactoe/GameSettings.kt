@@ -6,8 +6,6 @@ import com.google.gson.Gson
 import no.jahnsrud.tictactoe.models.Player
 import com.google.gson.reflect.TypeToken
 
-
-
 object GameSettings {
 
     val PREFS_FILENAME = "no.jahnsrud.tictactoe.prefs"

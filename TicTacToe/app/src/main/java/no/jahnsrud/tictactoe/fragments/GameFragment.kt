@@ -30,7 +30,7 @@ class GameFragment : androidx.fragment.app.Fragment(){
 
     val PLAYER_1_SYMBOL = R.drawable.mario_hat
     val PLAYER_2_SYMBOL = R.drawable.luigi_hat
-    val BOT_DELAY_IN_MS:Long = 190
+    val BOT_DELAY_IN_MS:Long = 100
 
     var gameButtons = arrayOf<ImageButton>()
 
@@ -147,28 +147,48 @@ class GameFragment : androidx.fragment.app.Fragment(){
         val handler = Handler()
         handler.postDelayed({
 
-            // Veldig midlertidig!
-            var random = getRandomIndex()
+            var moveToMake = lookForGoodMoves()
 
-            while (!canMakeMove(random)) {
-                random = getRandomIndex()
+            if (moveToMake == -1) {
 
+                while (!canMakeMove(moveToMake)) {
+                    moveToMake = getRandomIndex()
+
+                }
             }
 
-            if (canMakeMove(3) && (player1.moves.containsAll(listOf(1, 2)))) {
-                random = 3;
-            } else if (canMakeMove(6) && (player1.moves.containsAll(listOf(4, 5)))) {
-                random = 6
-            } else if (canMakeMove(9) && (player1.moves.containsAll(listOf(7, 8)))) {
-                random = 9
-            }
 
-            makeMove(getButtonFromIndex(random), random)
+            makeMove(getButtonFromIndex(moveToMake), moveToMake)
 
         }, BOT_DELAY_IN_MS)
 
 
 
+    }
+
+    fun lookForGoodMoves() : Int {
+
+        if (checkMove(3, 1, 2)) {
+            return 3;
+        } else if (checkMove(6,4, 5)) {
+            return 6;
+        } else if (checkMove(9, 7, 8)) {
+            return 9;
+        } else if (checkMove(2, 5, 8)) {
+            return 2;
+        }
+
+
+        return -1;
+
+    }
+
+    fun checkMove(indexToCheck:Int, index1:Int, index2:Int) : Boolean {
+        if (canMakeMove(indexToCheck) && (player1.moves.containsAll(listOf(index1, index2)))) {
+            return true;
+        }
+
+        return false;
     }
 
     fun getRandomIndex() : Int {
